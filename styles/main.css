@@ -1,0 +1,19 @@
+.main-container {
+	background-color: lightgrey;
+	height: 500px;
+}
+.hour {
+	text-align: left;
+}
+.day {
+	text-align: left;
+}
+.week {
+	text-align: left;
+}
+.month {
+	text-align: left;
+}
+.year {
+	text-align: left;
+}
