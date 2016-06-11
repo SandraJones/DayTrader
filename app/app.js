@@ -6,17 +6,17 @@ var app = angular.module("DayTrader", ["ngRoute"])
 app.config(function($routeProvider){
 	$routeProvider.
 		when('/', {
-			templateUrl: 'partials/login'
-		})
+			templateUrl: 'partials/login',
+			controllers: 'LoginCtrl.js'
+		}).
+    	otherwise('/',{
+    	templateUrl: 'partials/login',
+			controllers: 'LoginCtrl.js'	
+    });
+   
 
 
 
 
 
-
-
-
-
-
-})  
-
+});
