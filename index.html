@@ -6,15 +6,12 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">	
     <link rel="stylesheet" type="text/css" href="styles/main.css">
 	</head>
-	<body  ng-app="Top Sku">
+	<body  ng-app="DayTrader">
     <div ng-include="'./partials/nav-bar.html'"></div>
 		<div>
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 main-container">
-          <div class="col-xs-12 hour" ng-view>Hour</div>
-					<div class="col-xs-12 day" ng-view>Day</div>
-					<div class="col-xs-12 week" ng-view>Week</div>
-					<div class="col-xs-12 month" ng-view>Month</div>
+          <div class="col-xs-12 month" ng-view>Month</div>
 					<div class="col-xs-12 year" ng-view>Year</div>
           <div>
           	<button class="button btn btn-default results">Display Results</button>
@@ -30,8 +27,8 @@
 		<script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
 		<script type="text/javascript" src="app/app.js"></script>
 		<script type="text/javascript" src="app/factories/AuthFactory.js"></script>
-		<script type="text/javascript" src="app/factories/ItemFactory.js"></script>
+		<script type="text/javascript" src="app/factories/StockFactory.js"></script>
 		<script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
-		<script type="text/javascript" src="app/controllers/ItemListCtrl.js"></script>
+		<script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
 	</body>
 </html>
