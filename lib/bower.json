@@ -14,8 +14,8 @@
   "dependencies": {
     "jquery": "^2.2.4",
     "angular": "^1.5.6",
-    "angular-route": "^1.5.6",
     "bootstrap": "^3.3.6",
-    "firebase": "^3.0.3"
+    "angular-route": "^1.5.5",
+    "angularfire": "^1.2.0"
   }
 }

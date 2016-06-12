@@ -14,9 +14,17 @@ app.config(function($routeProvider){
 			controllers: 'LoginCtrl.js'	
     });
    
+     app.run(($location) =>{
+  	 let addressRef = new Firebase("https://sjdaytrader.firebaseio.com/");
 
+  	 addressRef.unauth();
 
-
-
+    //When Registering:
+  	addressRef.onAuth(authData =>{
+   	 if(!authData){
+       $location.path("/login");
+     }
+    })	
+  });
 
 });

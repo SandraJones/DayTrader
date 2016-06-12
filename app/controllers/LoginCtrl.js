@@ -8,7 +8,6 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
         password: ""
     };
 
-
     if($location.path() === "/logout"){
         ref.unauth();
         $rootScope.isActive = false;
@@ -29,7 +28,6 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
         });
     };
 
-
     $scope.login = () => {
         console.log("you clicked login");
         AuthFactory
@@ -40,8 +38,5 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
                 $location.path("/");
                 $scope.$apply();
             })
-
-
     };
-
 })
