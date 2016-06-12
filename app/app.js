@@ -1,7 +1,31 @@
 "use strict";
 
 var app = angular.module("DayTrader", ["ngRoute"])
-  .constant("firebaseURL", "https://sjdaytrader.firebaseio.com/");
+  .constant("firebaseURL", "https://sjdaytrader.firebaseio.com/")
+
+
+let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
+  if(AuthFactory.isAuthenticated()){
+    console.log("User is authenticated, resolve route promise");
+    resolve();
+  } else {
+    console.log("User is not authenticated, reject route promise");
+    reject();
+  }
+})
+
+app.directive('errSrc', function() {
+  return {
+    link: function(scope, element, attrs) {
+      element.bind('error', function() {
+        if (attrs.src !== attrs.errSrc) {
+          attrs.$set('src', attrs.errSrc);
+        }
+      });
+    }
+  };
+});
+  
 
 app.config(function($routeProvider){
 	$routeProvider.
