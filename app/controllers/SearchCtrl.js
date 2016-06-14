@@ -6,8 +6,9 @@ app.controller("SearchCtrl", function($scope, $rootScope, $routeProvider, AuthFa
   //if the item in the search box matches any ticker 
   	//id in the object
 
-  	getUserFaves(userId){
-  		return (objectOfFaves)
+  	getStocks(userId){
+  		//bind input to a call to Quandl database
+  		return (objectFromQuandl)
 
 
 

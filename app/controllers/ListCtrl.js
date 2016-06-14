@@ -8,7 +8,7 @@ app.controller("ListCtrl",
   	$scope.addFave = {};
 
   $scope.getFavorites = function(){
-  	StockFactory.getStocks()
+  	StockFactory.getFaves()
   	.then(function(data){
   		$scope.stocks = [];
   		for (var stock in data){
