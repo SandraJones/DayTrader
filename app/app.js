@@ -27,13 +27,27 @@ var app = angular.module("DayTrader", ["ngRoute"])
 
     app.config(function($routeProvider){
     	$routeProvider.
-    		when('/', {
-    			templateUrl: 'partials/login',
-    			controller: 'LoginCtrl.js'
-    	  })
+    		when('/list', {
+          templateUrl: './partials/nav.html',
+          controller: 'ListCtrl',
+          resolve: {isAuth}
+        }).
+        when('/logout', {
+          templateUrl: './partials/login.html',
+          controller: 'LoginCtrl'
+        }).  
+        when('/search', {
+          templateUrl: './partials/search.html',
+          controller: 'SearchCtrl',
+          resolve: {isAuth}
+        }).
+        otherwise('/', {
+          templateUrl: './partials/login.html',
+          controller: 'LoginCtrl'
+          });
     });
        
-    app.run(($location) =>{
+    app.run(($location, firebase) =>{
 	  let addressRef = new Firebase("https://sjdaytrader.firebaseio.com/");
 
 	  addressRef.unauth();
