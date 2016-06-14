@@ -56,7 +56,7 @@ var app = angular.module("DayTrader", ["ngRoute"])
 	  addressRef.onAuth(authData =>{
  	    if(!authData){
         $location.path("/login");
-      }
+       }
     })	
     });
 

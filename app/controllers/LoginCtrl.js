@@ -3,6 +3,8 @@
 app.controller("LoginCtrl", function($scope, $rootScope, $routeProvider, $location, firebaseURL, AuthFactory){
     let ref = new Firebase(firebaseURL);
 
+    //$scope.hasUser = false;
+
     $scope.account = {
         email: "",
         password: ""
