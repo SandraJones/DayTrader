@@ -14,7 +14,7 @@ app.factory("StockFactory", function($scope, $location, $http, $routeProvider){
 			});
 	};
 
-  var addFaveToFavorites = function(stock){
+  var addStockToFavorites = function(stock){
   	return $q(function(resolve, reject) {
   		$http.post(
   			firebaseURL + "movies" + ".json",
