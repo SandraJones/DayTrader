@@ -1,0 +1,13 @@
+{
+	"stocks": {
+		"stock": {
+			"Ticker": "",
+			"Open": "",
+			"Close": "",
+			"High": "",
+			"Low": "",
+			"Volume": "",
+			"Id": ""
+		}
+	}
+}

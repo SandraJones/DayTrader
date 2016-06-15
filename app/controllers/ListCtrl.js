@@ -8,6 +8,7 @@ app.controller("ListCtrl",
   	$scope.addFave = {};
 
   $scope.getFavorites = function(){
+  	console.log("getFavoritesFunction");
   	StockFactory.getFaves()
   	.then(function(data){
   		$scope.stocks = [];
@@ -19,6 +20,7 @@ app.controller("ListCtrl",
   }
 
   $scope.showFavorites = function(stock){
+  	console.log("showFavoritesFunction");
   	let selectedStock = {
   		 open: stock.open,
   		 close: stock.close,
