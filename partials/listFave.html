@@ -1,0 +1,30 @@
+<section class="sectional">
+	<div class="containerFluid" ng-repeat="getFaves()">
+	<div ng-repeat="stock in stocks |  {isFave: true}">
+		<div class="row faveListClass">
+		  <div></div>
+		 
+		</div>
+
+		<div>
+			<button class="btn btn-info" ng-click="addStockToFavorites()">Add To Favorites</button>
+			<button class="btn btn-default" ng-click="deleteStockFromFaves()">Delete From Favorites</button>
+		</div>
+		
+
+		<!--want this to be the notes output area-->
+		<div class = "notes">
+			<form class="span6">
+			  <h2>Notes</h2><br>
+			  <input class="span6" type="text" placeholder="Enter notes here." required>
+			  <input class="span6" type="text" placeholder="Enter notes here." required>
+			  <input class="span6" type="email" placeholder="Enter notes here." required>
+			  <input class="span6" type="text" placeholder="Enter notes here.">
+			  <input class="span6" type="text" rows="3" placeholder="Enter notes here." required><br>
+			  
+			  <button type="submit" ng-click="addToNotes()" btn btn-primary">Add To Notes</button>
+			  <button type="clear" ng-click="deleteFromNotes()" class="btn">Clear</button>
+
+			</form><!--/.span6-->
+		</div>
+</section>

@@ -7,7 +7,10 @@
 			"High": "",
 			"Low": "",
 			"Volume": "",
-			"Id": ""
+			"Id": "",
+			"Date": "",
+			"uid": "",
+			"isFave": ""
 		}
 	}
 }

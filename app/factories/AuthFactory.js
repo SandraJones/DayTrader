@@ -1,7 +1,6 @@
-"use strict";
 app.factory("AuthFactory", function(firebaseURL) {
-  let ref = new Firebase(firebaseURL);
-  let currentUserData = null;
+  var ref = new Firebase(firebaseURL);
+  var currentUserData = null;
 
   return {
     /*
@@ -31,8 +30,8 @@ app.factory("AuthFactory", function(firebaseURL) {
             console.log("authWithPassword method completed successfully");
             currentUserData = authData;
             resolve(authData);
-          }
-        });
+           }
+          });
       });
     },
 
@@ -40,7 +39,7 @@ app.factory("AuthFactory", function(firebaseURL) {
       Store each Firebase user's id in the `users` collection
      */
     storeUser (authData) {
-      let stringifiedUser = JSON.stringify({ uid: authData.uid });
+      var stringifiedUser = JSON.stringify({ uid: authData.uid });
 
       return new Promise((resolve, reject) => {
         $http
@@ -51,6 +50,5 @@ app.factory("AuthFactory", function(firebaseURL) {
           );
       });
     }
-
   };
 });
