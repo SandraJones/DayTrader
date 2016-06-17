@@ -37,11 +37,11 @@ var app = angular.module("DayTrader", ["ngRoute"])
         //   controller: 'SearchCtrl',
         //   resolve: {isAuth}
         // }).  
-        // when('/favorites', {
-        //   templateUrl: './partials/listFave.html',
-        //   controller: 'ListCtrl',
-        //   resolve: {isAuth}
-        // }).
+        when('/favorites', {
+          templateUrl: './partials/listFave.html',
+          controller: 'ListCtrl',
+          resolve: {isAuth}
+        }).
         otherwise('/');
     });
        
