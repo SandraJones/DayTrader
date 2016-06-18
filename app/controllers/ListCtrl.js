@@ -1,8 +1,8 @@
 "use strict";
 
 app.controller("ListCtrl", 
-	["$scope", "StockFactory",
-  function($scope, StockFactory){
+	["$scope", "StockFactory", "firebaseURL",
+  function($scope, StockFactory, firebaseURL){
   	console.log("ListControllerLoaded");
   	$scope.searchQuandl = "";
   	$scope.addFave = {};
@@ -34,8 +34,30 @@ app.controller("ListCtrl",
   		 isFave: false,
 			 uid: ""	
   	}
-  	StockFactory.addFaveToFavorites(selectedStock);
+  	
   }
+
+  $scope.addStockToFavorites = function(){
+  var ref = new Firebase(firebaseURL);
+
+  var userFavorite = JSON.stringify({
+          ticker: newStock.ticker,
+          open: newStock.ticker,
+          close: newStock.close,
+          high: newStock.high,
+          low: newStock.low,
+          volume: newStock.volume,
+          id: newStock.id,
+          date: newStock.date,
+          uid: ref.getAuth().uid
+          //isFave: newStock.isFave
+        });
+  console.log("userFavorite", userFavorite);
+  StockFactory.addStockToFavorites(userFavorite);
+}
+
+
+
 
   $scope.deleteStock = function(data) {
   	console.log("deleteStockfunction ready");

@@ -1,24 +1,28 @@
 <html>
 	<div class="container-fluid main-container">
-  <h2 class="stockSearch">Search for Stocks</h2>
+  <h2 class="stockSearch">Search Stock</h2>
 
 		<div class="stockSearch col-xs-6 col-xs-offset-3">
-		  <input type="text" class="form-control" placeholder="Search for Stocks" ng-model="getStocks">
+		  <input type="text" class="form-control" placeholder="SearchStock" ng-model="getAStock"/>
         <div class="searchButton col-xs-6 col-xs-offset-3">
           <span class="input-group-btn FaveStocksSearch">
-              <button class="btn btn-default" ng-click="getStocks(); showStocks =! showStocks"><i class="fa fa-search" aria-hidden="true"></i>Search For Stocks</button>
+              <button class="btn btn-default" ng-click="searchAStock()">
+              <i class="fa fa-search" aria-hidden="true">     
+              </i>Search A Stock</button>
           </span>
         </div>
     </div>
-		<div class="stockDisplay" ng-show="showStocks">
-    	<div ng-repeat="stock in stocks">
-      	<div class="clearfix" ng-if="$index % 3 == 0"></div>
+    <br>
+    <br>
+
+		<div class="outputQuandlStock">
         	<div class="stockCard col-md-4">
-          	<h4>{{stock.Ticker}}</h4>
-          	<h5>{{stock.Year}}</h5>
-          	<button ng-controller="SearchCtrl" type="button" class="btn btn-info" ng-click="addStockToFavorites(stock)">Add to Favorites</button>
+          	<h5>{{stock.name}}</h5>
+            <h5>{{stock.start_date}}</h5>
+            <h5>{{stock.high}}</h5>
+            <h5>{{stock.low}}</h5>
+            <h5>{{stock.data[4]}}</h5>
         	</div>
       </div>
-   	</div>
-	</div>
+   	</div> 
 </html>

@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("StockFactory", function(firebaseURL, firebase, $http){
+app.factory("StockFactory", function(firebaseURL, $q, $http){
 
 	var getFaves = function(){
 		console.log("getFavesFunctionready");
@@ -14,37 +14,22 @@ app.factory("StockFactory", function(firebaseURL, firebase, $http){
 	};
 
   var addStockToFavorites = function(stock){
-  	console.log("addStockToFavorites fired");
-  	let user = AuthFactory.getUser();
-  	console.log("user", user);
+  	console.log("addStockToFavorites fired", stock);
   	return $q(function(resolve, reject) {
-  		$http.post(
-  			firebaseURL + "stocks.json",
-  			JSON.stringify({
-  				ticker: newStock.ticker,
-					open: newStock.ticker,
-					close: newStock.close,
-					high: newStock.high,
-					low: newStock.low,
-					volume: newStock.volume,
-					id: newStock.id,
-					date: newStock.date
-					//isFave: newStock.isFave
-  				})
-  			)
-  		.success(
-  			function(objectFromFirebase){
-  				resolve(objectFromFirebase);
-  			});
-  	});
+  		$http.post(firebaseURL + "stocks.json", stock)
+  	})
+  	.success(
+			function(objectFromFirebase){
+				resolve(objectFromFirebase);
+		});
   };
 
 		//Quandl api call to return a stockObject for display in DOM in pageThreeView
 	var getStocks = function(stock){
-		console.log("getStocksFunctionFired");
 		return $q(function(resolve, reject){
-			$http.get(`https://www.quandl.com/api/v3/datasets/WIKI/MMM.json?start_date=2016-06-07&end_date=2016-06-13&open&high&low&close&volume&api_key=hyrU1YpXzusZztWa9iYY`)
+			$http.get(`https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-06-07&end_date=2016-06-13&open&high&low&close&volume&api_key=hyrU1YpXzusZztWa9iYY`)
 			.success(function(stockData){
+				console.log("stockdata", stockData);
 				resolve(stockData);
 				}, function(error){
 					  reject(error);

@@ -1,4 +1,4 @@
-var app = angular.module("DayTrader", ["ngRoute"])
+var app = angular.module("DayTrader", ["ngRoute", "firebase"])
   .constant("firebaseURL", "https://sjdaytrader.firebaseio.com/")
   
 
@@ -32,16 +32,16 @@ var app = angular.module("DayTrader", ["ngRoute"])
           templateUrl: './partials/login.html',
           controller: 'LoginCtrl'
         }).
-        // when('/search', {
-        //   templateUrl: './partials/search.html',
-        //   controller: 'SearchCtrl',
-        //   resolve: {isAuth}
-        // }).  
-        when('/favorites', {
-          templateUrl: './partials/listFave.html',
-          controller: 'ListCtrl',
+        when('/search', {
+          templateUrl: './partials/search.html',
+          controller: 'SearchCtrl',
           resolve: {isAuth}
-        }).
+        }).  
+        // when('/favorites', {
+        //   templateUrl: './partials/listFave.html',
+        //   controller: 'ListCtrl',
+        //   resolve: {isAuth}
+        // }).
         otherwise('/');
     });
        
