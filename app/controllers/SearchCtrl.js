@@ -1,18 +1,28 @@
-// "use strict";
+"use strict"
 
-// app.controller("SearchCtrl", function($scope, StockFactory){
+app.controller('SearchCtrl', ["$scope", "$location", "StockFactory",
+	 function($scope, $location, StockFactory){
+	 	console.log("SearchCtrl loaded");
+	 	$scope.getStocks = "";
+	 	$scope.stocks = [{
+	 		"Ticker": "",
+			"Open": "",
+			"Close": "",
+			"High": "",
+			"Low": "",
+			"Volume": "",
+			"Id": "",
+			"Date": "",
+			"uid": "",
+			"isFave": ""
+	 	}];
 
-//   //go to firebase and check user's faves to see if the item in the search box matches any ticker id in the object
+	 	$scope.stocksList = [];
 
-//   	getStocks(userId){
-//   		//bind input to a call to Quandl database; unsure right now how to do that
-//   		return (objectFromQuandl);
-
-// //bring in
-
-//   	};
-  
-
-
-	
-// })
+	 	$scope.getStocks = function(){
+	 		console.log("getStocksLoaded");
+	 		StockFactory.getStocks($scope.getStocks).then(function(stockReturn){
+	 			$scope.stock = stockReturn.Search;
+	 		});
+	 	}
+	 }]);

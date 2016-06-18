@@ -39,6 +39,21 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
                 $rootScope.isActive = true;
                 $location.path("/");
                 $scope.$apply();
+              //  StockFactory.getFaves();
+            })
+    };
+
+    $scope.logout = () => {
+        console.log("you logged out");
+        AuthFactory
+            .authenticate($scope.account)
+            .then(() => {
+                $rootScope.isActive = false;
+                $location.path("/");
+                $scope.account = {
+                    email: "",
+                    password: ""
+                };
             })
     };
 })

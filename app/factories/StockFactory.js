@@ -5,7 +5,7 @@ app.factory("StockFactory", function(firebaseURL, firebase, $http){
 	var getFaves = function(){
 		console.log("getFavesFunctionready");
 		return $q(function(resolve, reject){
-			$http.get(firebaseURL+ "userId" + ".json")
+			$http.get(firebaseURL+ "uid" + ".json")
 			.success(
 				function(objectFromFirebase){
 					resolve(objectFromFirebase);
@@ -42,7 +42,7 @@ app.factory("StockFactory", function(firebaseURL, firebase, $http){
 	var getStocks = function(stock){
 		console.log("getStocksFunctionFired");
 		return $q(function(resolve, reject){
-			$http.get(`https://www.quandl.com/api/v3/datasets/WIKI/MMM.json?start_date=2016-06-07&end_date=2016-06-13&open&high&low&close&api_key=hyrU1YpXzusZztWa9iYY`)
+			$http.get(`https://www.quandl.com/api/v3/datasets/WIKI/MMM.json?start_date=2016-06-07&end_date=2016-06-13&open&high&low&close&volume&api_key=hyrU1YpXzusZztWa9iYY`)
 			.success(function(stockData){
 				resolve(stockData);
 				}, function(error){
