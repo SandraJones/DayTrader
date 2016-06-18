@@ -29,6 +29,7 @@ app.factory("StockFactory", function(firebaseURL, firebase, $http){
 					volume: newStock.volume,
 					id: newStock.id,
 					date: newStock.date
+					//isFave: newStock.isFave
   				})
   			)
   		.success(
