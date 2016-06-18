@@ -2,12 +2,13 @@
 
 app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL, AuthFactory){
     let ref = new Firebase(firebaseURL);
+    
+    //$scope.hasUser = false;
 
     $scope.account = {
         email: "",
         password: ""
     };
-
 
     if($location.path() === "/logout"){
         ref.unauth();
@@ -21,14 +22,13 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
             password: $scope.account.password
         }, (error, userData) => {
             if(error){
-                console.log(`Error creating user: ${error}`)
+                console.log('Error creating user: ${error}');
             } else{
-                console.log(`Created user account with uid: ${userData.uid}`)
+                console.log('Created user account with uid: ${userData.uid}');
                 $scope.login();
             }
         });
     };
-
 
     $scope.login = () => {
         console.log("you clicked login");
@@ -39,9 +39,21 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
                 $rootScope.isActive = true;
                 $location.path("/");
                 $scope.$apply();
+              //  StockFactory.getFaves();
             })
-
-
     };
 
+    $scope.logout = () => {
+        console.log("you logged out");
+        AuthFactory
+            .authenticate($scope.account)
+            .then(() => {
+                $rootScope.isActive = false;
+                $location.path("/");
+                $scope.account = {
+                    email: "",
+                    password: ""
+                };
+            })
+    };
 })
