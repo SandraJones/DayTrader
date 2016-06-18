@@ -1,2 +1,2 @@
 # DayTrader
-##Please npm install moment and npm install quandl
+##Added moment by npm install moment
