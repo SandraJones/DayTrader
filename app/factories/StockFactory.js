@@ -13,6 +13,7 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 			});
 	};
 
+//do I need something in here to let Firebase know it is a particular user or does login already take care of that?
   var addStockToFavorites = function(stock){
   	console.log("addStockToFavorites fired", stock);
   	return $q(function(resolve, reject) {
@@ -27,14 +28,16 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 		//Quandl api call to return a stockObject for display in DOM in pageThreeView
 	var getStocks = function(stock){
 		return $q(function(resolve, reject){
-			$http.get(`https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-06-07&end_date=2016-06-13&open&high&low&close&volume&api_key=hyrU1YpXzusZztWa9iYY`)
+			$http.get(`https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?rows=3&api_key=hyrU1YpXzusZztWa9iYY`)
 			.success(function(stockData){
 				console.log("stockdata", stockData);
-				resolve(stockData);
+				resolve(stockData)
+					// .then pullValueFromArrayinArrayInObject(){
+					// 	//.success()
 				}, function(error){
 					  reject(error);
-				});			
-			});
+				});
+			});			
 		};
 		
 	var deleteStockFromFaves = function(stock){
@@ -72,5 +75,5 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 	return {
 		addStockToFavorites:addStockToFavorites, getFaves:getFaves, 
 		getStocks:getStocks, deleteStockFromFaves:deleteStockFromFaves, 
-		clearnotes:clearNotes, addToNotes:addToNotes};
+		clearNotes:clearNotes, addToNotes:addToNotes};
 });

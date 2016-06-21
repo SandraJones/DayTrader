@@ -46,9 +46,9 @@ var app = angular.module("DayTrader", ["ngRoute", "firebase"])
     });
        
    //  app.run(($location, firebase, "https://sjdaytrader.firebaseio.com/") =>{
-	  // let addressRef = new Firebase("https://sjdaytrader.firebaseio.com/");
+	  // let someRef = new Firebase("https://sjdaytrader.firebaseio.com/");
 
-	  // addressRef.unauth();
+	  // someRef.unauth();
 
    //  //When Registering:
 	  // addressRef.onAuth(authData =>{

@@ -14,15 +14,33 @@
     </div>
     <br>
     <br>
-
 		<div class="outputQuandlStock">
         	<div class="stockCard col-md-4">
-          	<h5>{{stock.name}}</h5>
-            <h5>{{stock.start_date}}</h5>
-            <h5>{{stock.high}}</h5>
-            <h5>{{stock.low}}</h5>
-            <h5>{{stock.data[4]}}</h5>
+          <br>
+          <br>
+            <h5>{{stock.name}}</h5>
+            <h5>{{stock.data[1].open[1]}}</h5>
+            <h5>{{stock.data[2]}}</h5>
         	</div>
       </div>
    	</div> 
+    <br>
+    <br>
+    <div class="row">
+      <div class="info">
+        <button class = "btn btn-default" ng-click="addStockToFavorites()">Add To Favorite Stocks</button>
+      </div>
+    </div>  
+
+    <!-- want this to be the notes output area -->
+    <div class="notes">
+      <form class="span6">
+        <h2>Notes</h2><br>
+        <input class="span6 noteLines" type="text" rows="3" placeholder="Enter notes here." required><br> 
+        <div class="note">      
+          <button type="submit" ng-click="addToNotes()">Add To Notes</button>
+          <button type="clear" ng-click="deleteFromNotes()" class="btn">Clear</button>
+        </div>
+      </form>
+    </div>
 </html>

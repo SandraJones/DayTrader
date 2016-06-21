@@ -1,0 +1,19 @@
+.stockCard {
+	text-align: center;
+	font-size: 16px;
+	color: blue;
+	border: 2px solid grey;
+	background-color: beige;
+}
+.stockSearch {
+	color: blue;
+	font-size: 36px;
+	text-align: left;
+	font-style: italic;
+}
+.main-container {
+	background-color: lightgrey;
+}
+body {
+	background-color: lightgrey;
+}
