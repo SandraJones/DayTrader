@@ -14,15 +14,18 @@
     </div>
     <br>
     <br>
+    
 		<div class="outputQuandlStock">
         	<div class="stockCard col-md-4">
           <br>
           <br>
-            <h5>{{stock.name}}</h5>
-            <h5>{{stock.data[1].open[1]}}</h5>
-            <h5>{{stock.data[2]}}</h5>
+            <h5>{{stockArray.datasets}}</h5>
+            <!--this doesn't work' also stock.data.open <h5>{{stock.data[1].open[1]}}</h5> -->
+            <h5>{{stockArray[0]}}</h5>       
+            <h5>CLOSE   {{stockArray[1]}}</h5>       
         	</div>
       </div>
+      
    	</div> 
     <br>
     <br>
