@@ -37,7 +37,7 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
             .then(() => {
                 // $scope.hasUser = true;
                 $rootScope.isActive = true;
-                $location.path("/");
+                $location.path("/search");
                 $scope.$apply();
               //  StockFactory.getFaves();
             })

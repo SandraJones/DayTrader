@@ -1,28 +1,18 @@
 "use strict"
-
 app.controller('SearchCtrl', ["$scope", "$location", "StockFactory",
 	 function($scope, $location, StockFactory){
-	 	console.log("SearchCtrl loaded");
-	 	$scope.getStocks = "";
-	 	$scope.stocks = [{
-	 		"Ticker": "",
-			"Open": "",
-			"Close": "",
-			"High": "",
-			"Low": "",
-			"Volume": "",
-			"Id": "",
-			"Date": "",
-			"uid": "",
-			"isFave": ""
-	 	}];
+	 	$scope.getAStock;
+	 	$scope.stockArray;
+	 	$scope.getKeys;
+	 	$scope.stockObj = {
+	 		Name: "",
+	 		Dates: {}
+	 	};
 
-	 	$scope.stocksList = [];
 
-	 	$scope.getStocks = function(){
-	 		console.log("getStocksLoaded");
-	 		StockFactory.getStocks($scope.getStocks).then(function(stockReturn){
-	 			$scope.stock = stockReturn.Search;
+	 	$scope.searchAStock = function(){
+	 		StockFactory.getStocks($scope.getAStock).then(function(stockReturn){
+	 			$scope.stockArray = stockReturn.dataset.data[0];
 	 		});
 	 	}
-	 }]);
+}]);

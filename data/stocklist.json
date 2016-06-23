@@ -1,7 +1,7 @@
 {
-	"stocks": {
-		"stock": {
-			"Ticker": "",
+	"dates": {
+		"date": {
+			"Name": "",
 			"Open": "",
 			"Close": "",
 			"High": "",

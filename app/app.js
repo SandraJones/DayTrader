@@ -1,4 +1,4 @@
-var app = angular.module("DayTrader", ["ngRoute"])
+var app = angular.module("DayTrader", ["ngRoute", "firebase"])
   .constant("firebaseURL", "https://sjdaytrader.firebaseio.com/")
   
 
@@ -32,23 +32,23 @@ var app = angular.module("DayTrader", ["ngRoute"])
           templateUrl: './partials/login.html',
           controller: 'LoginCtrl'
         }).
-        // when('/search', {
-        //   templateUrl: './partials/search.html',
-        //   controller: 'SearchCtrl',
-        //   resolve: {isAuth}
-        // }).  
-        when('/favorites', {
-          templateUrl: './partials/listFave.html',
-          controller: 'ListCtrl',
+        when('/search', {
+          templateUrl: './partials/search.html',
+          controller: 'SearchCtrl',
           resolve: {isAuth}
-        }).
+        }).  
+        // when('/favorites', {
+        //   templateUrl: './partials/listFave.html',
+        //   controller: 'ListCtrl',
+        //   resolve: {isAuth}
+        // }).
         otherwise('/');
     });
        
    //  app.run(($location, firebase, "https://sjdaytrader.firebaseio.com/") =>{
-	  // let addressRef = new Firebase("https://sjdaytrader.firebaseio.com/");
+	  // let someRef = new Firebase("https://sjdaytrader.firebaseio.com/");
 
-	  // addressRef.unauth();
+	  // someRef.unauth();
 
    //  //When Registering:
 	  // addressRef.onAuth(authData =>{
