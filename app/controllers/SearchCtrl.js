@@ -1,31 +1,26 @@
 "use strict"
-app.controller('SearchCtrl', ["$scope", "$location", "StockFactory",
-	 function($scope, $location, StockFactory){
+app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "AuthFactory",
+	 function($scope, $location, StockFactory, AuthFactory){
 	 	$scope.getAStock;
 	 	$scope.stockArray;
 	 	$scope.stockFave;
+	 	
 
 	 	$scope.searchAStock = function(){
 	 		StockFactory.getStocks($scope.getAStock).then(function(stockReturn){
 	 			$scope.stockArray = stockReturn.dataset.data[0];
 	 		});
-	 	}
+	 	};
 
-	 	// $scope.addAStock = function(stockArray){
-	 	//  	$scope.stockFave = returnedFave;
-	 	// 		function toObject(stockFave) {
-  	// 	// 		var rv = {};
-  		// 			for (var i = 0; i < $stock.stockFave.length; ++i){
-    // 					if (stockFave[i] !== undefined){ 
-    // 						rv[i] = stockFave[i];
-  		// 					return rv;
-				// 			}
-  		// 				console.log(rv);
-	 	 // 				}
-				// .success(
-				// function(objectF){
-				// resolve(objectF);
-				// });
-		// 		};
-		// };
+	 	$scope.addAStock = function(){
+	 		var currentUser = AuthFactory.getUser();
+	 		console.log("user", currentUser);
+	 	 	let Favorite = {
+	 	 		"name": $scope.getAStock,
+				"date": $scope.stockArray[0],
+				"close": $scope.stockArray[1],
+	 			"uid": currentUser
+			};
+			StockFactory.addStockToFavorites(Favorite);
+	 	 	};
 }]);

@@ -15,16 +15,14 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 
 //converting array to object for saving to Firebase 
 //stockFave or objectF? 
-  var addStockToFavorites = function(stockFave){
-  	$scope.addAStock(stockArray);
-  	console.log("stockArray", stockArray);
-  	console.log("objectF", objectF );
+  var addStockToFavorites = function(Favorite){	
+  	console.log("Favorite", Favorite);
   	return $q(function(resolve, reject) {
-  		$http.post(firebaseURL + "stocks.json", rv)
+  		$http.post(firebaseURL + "Favorites.json", Favorite)
   	})
-  	.success(
-			function(objectToFirebase){
-				resolve(objectToFirebase);
+  	.then(
+			function(FavoriteToFirebase){
+				resolve(FavoriteToFirebase);
 		});
   };
 
@@ -33,7 +31,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 		return $q(function(resolve, reject){
 			$http.get(`https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?api_key=hyrU1YpXzusZztWa9iYY&column_index=4&rows=1`)
 			.success(function(stockData){
-				console.log("stockdata", stockData);
 				resolve(stockData)
 			}, function(error){
 					  reject(error);
