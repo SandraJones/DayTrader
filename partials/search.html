@@ -1,6 +1,6 @@
 <html>
   <div class="container-fluid main-container">
-  <h2 class="stockSearch">Search Stock</h2>
+  <h2 class="stockSearch">Search A Stock</h2>
 
     <div class="stockSearch col-xs-6 col-xs-offset-3">
       <input type="text" class="form-control" placeholder="SearchStock" ng-model="getAStock"/>
@@ -32,11 +32,13 @@
         <button class = "btn btn-default" ng-click="addStockToFavorites(stockData)">Add To Favorite Stocks</button>
       </div>
     </div>  
+    <br>
+    <br>
 
     <!-- want this to be the notes output area -->
     <div class="notes">
       <form class="span6">
-        <h2>Notes</h2><br>
+        <h2 class="notesHeading">Notes</h2><br>
         <input class="span6 noteLines" type="text" rows="3" placeholder="Enter notes here." required><br> 
         <div class="note">      
           <button type="submit" ng-click="addToNotes()">Add To Notes</button>
@@ -44,4 +46,17 @@
         </div>
       </form>
     </div>
+    <div>
+      <p>
+        <ul>Caution: 
+          <li>Don't invest anything you can't afford to lose.</li>
+          <li>Never borrow money to invest in stock.</li>
+          <li>Investing in a single stock is riskier than investing in an index fund.</li>
+        </ul>
+      </p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer>copyright SandyJones</footer>
 </html>

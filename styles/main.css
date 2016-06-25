@@ -3,12 +3,13 @@
 	font-size: 16px;
 	color: blue;
 	border: 2px solid grey;
-	background-color: beige;
+	background-color: tan;
+	font-weight: 800;
 }
 .stockSearch {
 	color: blue;
 	font-size: 36px;
-	text-align: left;
+	text-align: center;
 	font-style: italic;
 }
 .main-container {
@@ -16,4 +17,10 @@
 }
 body {
 	background-color: lightgrey;
+}
+.notesHeading {
+	color: blue;
+	text-align: center;
+	font-style: italic;
+	font-weight: 800;
 }
