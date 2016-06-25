@@ -13,27 +13,22 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 			});
 	};
 
-//converting array to object for saving to Firebase
-  var addStockToFavorites = function(stockData){
-  	console.log("addStockToFavoritesFired");
-  	function toObject(stockData) {
-  		var rv = {};
-  		for (var i = 0; i < stockData.length; ++i)
-    		if (stockData[i] !== undefined) 
-    			rv[i] = stockData[i];
-  				return rv;
-			}
-  	console.log(rv);
+//converting array to object for saving to Firebase 
+//stockFave or objectF? 
+  var addStockToFavorites = function(stockFave){
+  	$scope.addAStock(stockArray);
+  	console.log("stockArray", stockArray);
+  	console.log("objectF", objectF );
   	return $q(function(resolve, reject) {
   		$http.post(firebaseURL + "stocks.json", rv)
   	})
   	.success(
-			function(objectFromFirebase){
-				resolve(objectFromFirebase);
+			function(objectToFirebase){
+				resolve(objectToFirebase);
 		});
   };
 
-		//Quandl api call to return a stockObject for display in DOM in pageThreeView
+		//Quandl api call to return a stockObject for display in DOM 
 	var getStocks = function(stock){
 		return $q(function(resolve, reject){
 			$http.get(`https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?api_key=hyrU1YpXzusZztWa9iYY&column_index=4&rows=1`)

@@ -2,10 +2,31 @@ $BackClr = aqua;
 $TextClr =  black;
 $Buttons =  lightgrey;
 $FontFamily = serif;
+$CardBkgnd = beige;
+$SearchClr = lightblue;
 
 .main-container {
 	background-color: $BackClr;
 	color: $TextClr;
 	font-family: $FontFamily;
 	height: 500px;
+}
+.stockCard {
+	text-align: center;
+	font-size: 16px;
+	color: $BackClr;
+	border: 2px solid $Buttons;
+	background-color: $CardBkgnd;
+}
+.stockSearch {
+	color: $SearchClr;
+	font-size: 36px;
+	text-align: left;
+	font-style: italic;
+}
+.main-container {
+	background-color: $Buttons;
+}
+body {
+	background-color: $Buttons;
 }
