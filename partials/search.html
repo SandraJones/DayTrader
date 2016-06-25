@@ -1,9 +1,9 @@
 <html>
-	<div class="container-fluid main-container">
+  <div class="container-fluid main-container">
   <h2 class="stockSearch">Search Stock</h2>
 
-		<div class="stockSearch col-xs-6 col-xs-offset-3">
-		  <input type="text" class="form-control" placeholder="SearchStock" ng-model="getAStock"/>
+    <div class="stockSearch col-xs-6 col-xs-offset-3">
+      <input type="text" class="form-control" placeholder="SearchStock" ng-model="getAStock"/>
         <div class="searchButton col-xs-6 col-xs-offset-3">
           <span class="input-group-btn FaveStocksSearch">
               <button class="btn btn-default" ng-click="searchAStock()">
@@ -15,22 +15,21 @@
     <br>
     <br>
     
-		<div class="outputQuandlStock">
-        	<div class="stockCard col-md-4">
+    <div class="outputQuandlStock">
+          <div class="stockCard col-md-4">
           <br>
           <br>
-            <h5>{{stockArray.datasets}}</h5>
+            <!-- <h5>{{stockArray.datasets}}</h5> -->
             <h5>{{stockArray[0]}}</h5>       
             <h5>CLOSE   {{stockArray[1]}}</h5>       
-        	</div>
+          </div>
       </div>
-      
-   	</div> 
+    </div> 
     <br>
-    <br>
+    <br>   
     <div class="row">
       <div class="info">
-        <button class = "btn btn-default" ng-click="addStockToFavorites()">Add To Favorite Stocks</button>
+        <button class = "btn btn-default" ng-click="addStockToFavorites(stockData)">Add To Favorite Stocks</button>
       </div>
     </div>  
 
