@@ -2,19 +2,7 @@
 
 app.factory("StockFactory", function(firebaseURL, $q, $http){
 
-	var getFaves = function(){
-		console.log("getFavesFunctionready");
-		return $q(function(resolve, reject){
-			$http.get(firebaseURL+ "uid" + ".json")
-			.success(
-				function(objectFromFirebase){
-					resolve(objectFromFirebase);
-				});
-			});
-	};
-
-//converting array to object for saving to Firebase 
-//stockFave or objectF? 
+	
   var addStockToFavorites = function(Favorite){	
   	console.log("Favorite", Favorite);
   	return $q(function(resolve, reject) {
@@ -38,40 +26,21 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 			});			
 		};
 
-	var deleteStockFromFaves = function(stock){
-		console.log("deleteStockFromFavesFunction");
-		return $q(function(resolve, reject){
-			$http.delete(
-				firebaseURL + "stocks/" + "stockId" + ".json")
-			.success(
-				 function(objectFromFirebase) {
-				 	 resolve(objectFromFirebase);
-				 });
-		  });
-		};
 
-//or should this be one edit function that overwrites the content of the whole notes string?
-	var clearNotes = function(){
-		return $q(function(resolve, reject) {
-			$http.delete(
-				firebaseURL + "notes/" + "noteId" + ".json")
-			.success(
-				function(stringFromFirebase) {
-					resolve(stringFromFirebase);
-				});
+
+	var addToNotes = function(Note){
+  	console.log("functionAddToNotes");
+  	return $q(function(resolve, reject) {
+  		$http.post(firebaseURL + "Notes.json", Note)
+  	})
+  	.then(
+			function(NoteToFirebase){
+				resolve(NoteToFirebase);
 		});
-	};
-
-	var addToNotes = function(){
-		return $q(function(resolve, reject){
-			//put probably
-			$http.post
-
-		})
-	};
+  };	
 
 	return {
-		addStockToFavorites:addStockToFavorites, getFaves:getFaves, 
-		getStocks:getStocks, deleteStockFromFaves:deleteStockFromFaves, 
-		clearNotes:clearNotes, addToNotes:addToNotes};
+		addStockToFavorites:addStockToFavorites, 
+		getStocks:getStocks,  addToNotes:addToNotes
+	};
 });

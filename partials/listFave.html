@@ -1,0 +1,18 @@
+<html>
+	<div class="container-fluid main-container">
+	          <div class="stockCard col-md-6" ng-repeat="favorite in outputFavArray">
+		<!-- <div class="outputUserFavorites"> -->
+						<!-- <div class="panel panel-default">
+							<div class="panel-body"> -->
+
+								<h2>{{favorite.name}}</h2>
+								<h3>{{favorite.date}}</h3>
+								<h3>{{favorite.close}}</h3>
+								
+								<div class = "col-xs-1"><button class="btn btn-danger" ng-click="favoriteDelete(favorite.uid)"><i class="fa fa-trash" aria-hidden="true"></i></div></button>
+							</div>
+	          </div>
+		</div>
+	</div>
+
+</html>

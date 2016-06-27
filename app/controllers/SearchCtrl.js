@@ -4,6 +4,8 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "AuthFactor
 	 	$scope.getAStock;
 	 	$scope.stockArray;
 	 	$scope.stockFave;
+	 	$scope.addANote;
+	 	$scope.notes;
 	 	
 
 	 	$scope.searchAStock = function(){
@@ -14,7 +16,6 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "AuthFactor
 
 	 	$scope.addAStock = function(){
 	 		var currentUser = AuthFactory.getUser();
-	 		console.log("user", currentUser);
 	 	 	let Favorite = {
 	 	 		"name": $scope.getAStock,
 				"date": $scope.stockArray[0],
@@ -23,4 +24,15 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "AuthFactor
 			};
 			StockFactory.addStockToFavorites(Favorite);
 	 	 	};
+
+	 	 $scope.addANote = function(notes){
+	 		var currentUser = AuthFactory.getUser();
+	 	 	let Note = {
+	 	 		"string": $scope.notes,
+	 			"uid": currentUser
+			};
+			StockFactory.addToNotes(Note);
+	 	 	};	
+	
 }]);
+

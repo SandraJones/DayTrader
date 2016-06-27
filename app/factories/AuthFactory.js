@@ -1,6 +1,6 @@
 app.factory("AuthFactory", function(firebaseURL) {
   var ref = new Firebase(firebaseURL);
-  var currentUserData = ref.getAuth().uid;
+  var currentUserData;  
 
   return {
     /*
@@ -12,6 +12,7 @@ app.factory("AuthFactory", function(firebaseURL) {
     },
 
     getUser () {
+      currentUserData = ref.getAuth().uid;
       return currentUserData;
     },
 
