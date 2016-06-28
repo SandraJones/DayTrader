@@ -19,11 +19,11 @@ var app = angular.module("DayTrader", ["ngRoute", "firebase"])
           templateUrl: './partials/login.html',
           controller: 'LoginCtrl'
         }).  
-        // when('/list', {
-      //     templateUrl: './partials/nav.html',
-      //     controller: 'ListCtrl',
-      //     resolve: {isAuth}
-      //   })
+        // when('/nav', {
+        //   templateUrl: './partials/nav.html',
+        //   controller: 'ListCtrl',
+        //   resolve: {isAuth}
+        // }).
         when('/logout', {
           templateUrl: './partials/login.html',
           controller: 'LoginCtrl'

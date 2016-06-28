@@ -10,7 +10,7 @@ app.controller('ListFaveCtrl', ["$scope", "$location", "StockFactory", "$timeout
 	 		console.log("getFaves running");
 	 	 		var uid = AuthFactory.getUser();				
 				var ref = new Firebase(firebaseURL + "Favorites" );
-				$timeout(function(){
+				// $timeout(function(){
 
 				ref.orderByChild("uid").equalTo(uid).on("value", function(snapshot) {
 	  		console.log(snapshot.val());
@@ -24,8 +24,8 @@ app.controller('ListFaveCtrl', ["$scope", "$location", "StockFactory", "$timeout
 					console.log($scope.outputFavArray);
 
 			});	
-			}, 25000);
 		};
+
 	 	 	 	
 
 
