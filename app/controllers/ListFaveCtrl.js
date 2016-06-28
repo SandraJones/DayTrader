@@ -4,6 +4,8 @@ app.controller('ListFaveCtrl', ["$scope", "$location", "StockFactory", "$timeout
 	 	console.log("ListFaveCtrl loaded");
 	
 	$scope.outputFavArray =[]; 	
+	$scope.getFaves();
+
 
 //need to slow down this process
 	 	$scope.getFaves = function(){
