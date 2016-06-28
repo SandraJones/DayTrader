@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("StockFactory", function(firebaseURL, $q, $http){
+app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 
 	
   var addStockToFavorites = function(Favorite){	
@@ -13,6 +13,27 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 				resolve(FavoriteToFirebase);
 		});
   };
+
+  
+		var getFavorites = function(){
+		var Faves = [];
+		let uid = AuthFactory.getUser();
+			return $q(function(resolve, reject){
+			$http.get(`${firebaseURL}Favorites.json?${uid}`)	
+				.success(function(FaveObject) {
+					var FaveCollection = FaveObject;
+					Object.keys(FaveCollection).forEach(function(key){
+						FaveCollection[key].id=key;
+						Faves.push(FaveCollection[key]);
+					});
+					resolve(Faves);
+					console.log(Faves);
+					})
+				.error(function(error){
+					reject(error);
+				});
+				});
+	};
 
 		//Quandl api call to return a stockObject for display in DOM 
 	var getStocks = function(stock){
@@ -40,7 +61,7 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
   };	
 
 	return {
-		addStockToFavorites:addStockToFavorites, 
+		addStockToFavorites:addStockToFavorites, getFavorites:getFavorites, 
 		getStocks:getStocks,  addToNotes:addToNotes
 	};
 });

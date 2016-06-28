@@ -1,35 +1,27 @@
 "use strict"
-app.controller('ListFaveCtrl', ["$scope", "$location", "StockFactory", "$timeout", "firebaseURL", "AuthFactory",
-	 function($scope, $location, StockFactory, $timeout, firebaseURL, AuthFactory){
+app.controller('ListFaveCtrl', ["$scope", "$location", "StockFactory",  "AuthFactory",
+	 function($scope, $location, StockFactory, AuthFactory){
 	 	console.log("ListFaveCtrl loaded");
 	
-	$scope.outputFavArray =[]; 	
-	$scope.getFaves();
-
+	// $scope.outputFavArray =[]; 	
+	$scope.getFaves;
+	$scope.Faves;
 
 //need to slow down this process
 	 	$scope.getFaves = function(){
-	 		console.log("getFaves running");
-	 	 		var uid = AuthFactory.getUser();				
-				var ref = new Firebase(firebaseURL + "Favorites" );
-				// $timeout(function(){
+	 	 // 		var uid = AuthFactory.getUser();	
+				// var ref = new Firebase(firebaseURL + "Favorites" );
+				// ref.orderByChild("uid").equalTo(uid).on("value", function(snapshot) {
+	  	// 	console.log(snapshot.val());
+	  	// 	var obj = snapshot.val();
+	  	// 	for (var prop in obj) {
 
-				ref.orderByChild("uid").equalTo(uid).on("value", function(snapshot) {
-	  		console.log(snapshot.val());
-	  		var obj = snapshot.val();
-	  		for (var prop in obj) {
+				// 	  console.log("obj." + prop + " = " + obj[prop]);
+				// 	  $scope.outputFavArray.push(obj[prop]);
 
-					  console.log("obj." + prop + " = " + obj[prop]);
-					  $scope.outputFavArray.push(obj[prop]);
+				// 	};
+				// 	console.log($scope.outputFavArray);
 
-					};
-					console.log($scope.outputFavArray);
-
-			});	
+			StockFactory.getFavorites();
 		};
-
-	 	 	 	
-
-
-
 }]);
