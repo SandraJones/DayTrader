@@ -1,13 +1,15 @@
 "use strict"
-app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "AuthFactory",
-	 function($scope, $location, StockFactory, AuthFactory){
+app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout", "AuthFactory",
+	 function($scope, $location, StockFactory, $timeout, AuthFactory){
 	 	$scope.getAStock;
 	 	$scope.stockArray;
 	 	$scope.stockFave;
 	 	$scope.addANote;
 	 	$scope.notes;
+ 	 	$scope.Faves = [];
+ 		$scope.selectedItem = {};
+ 		$scope.useListOfFaves;
 	 	
-
 	 	$scope.searchAStock = function(){
 	 		StockFactory.getStocks($scope.getAStock).then(function(stockReturn){
 	 			$scope.stockArray = stockReturn.dataset.data[0];
@@ -33,6 +35,18 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "AuthFactor
 			};
 			StockFactory.addToNotes(Note);
 	 	 	};	
-	
-}]);
+ 
+	 	 	$scope.useListOfFaves = function(){
+		    StockFactory.getFaves().then(function(FaveCollection){
+		        console.log("FaveCollection from promise", FaveCollection);
+		        $scope.Faves = FaveCollection;
+		        $scope.selectedItem = $scope.Faves.filter(function(uid){
+						$timeout();
+						$location.path('/list');
+					return $scope.selectedItem;
+				});
+		        console.log("selectedITem in ctrller getFaves function", $scope.selectedItem );
+		    });
+	 		 };
 
+}]);
