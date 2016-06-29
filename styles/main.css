@@ -9,18 +9,21 @@
 .stockSearch {
 	color: blue;
 	font-size: 36px;
-	text-align: center;
+	text-align: left;
 	font-style: italic;
 }
 .main-container {
-	background-color: lightgrey;
+	background-color: grey;
 }
 body {
-	background-color: lightgrey;
+	background-color: grey;
 }
 .notesHeading {
 	color: blue;
 	text-align: center;
 	font-style: italic;
 	font-weight: 800;
+}
+.search {
+	text-align: float right;
 }

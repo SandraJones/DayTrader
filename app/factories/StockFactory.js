@@ -1,20 +1,9 @@
 "use strict";
 
-app.factory("StockFactory", function(firebaseURL, $q, $http){
+app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 
-	var getFaves = function(){
-		console.log("getFavesFunctionready");
-		return $q(function(resolve, reject){
-			$http.get(firebaseURL+ "uid" + ".json")
-			.success(
-				function(objectFromFirebase){
-					resolve(objectFromFirebase);
-				});
-			});
-	};
+	var FaveCollection;
 
-//converting array to object for saving to Firebase 
-//stockFave or objectF? 
   var addStockToFavorites = function(Favorite){	
   	console.log("Favorite", Favorite);
   	return $q(function(resolve, reject) {
@@ -25,6 +14,32 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 				resolve(FavoriteToFirebase);
 		});
   };
+
+  
+		var getFaves = function(){
+		var Faves = [];
+		let uid = AuthFactory.getUser();
+			return $q(function(resolve, reject){
+				console.log("getFavesrunning inside StockFactory");
+			$http.get(`${firebaseURL}Favorites.json?${uid}`)	
+				.success(function(FaveObject) {
+					FaveCollection = FaveObject;
+					Object.keys(FaveCollection).forEach(function(key){
+						FaveCollection[key].id=key;
+						Faves.push(FaveCollection[key]);
+					});
+					resolve(Faves);
+					console.log(Faves);
+					})
+				.error(function(error){
+					reject(error);
+				});
+				});
+	};
+
+		var getCollection = function(){
+			return FaveCollection;
+		}
 
 		//Quandl api call to return a stockObject for display in DOM 
 	var getStocks = function(stock){
@@ -38,40 +53,21 @@ app.factory("StockFactory", function(firebaseURL, $q, $http){
 			});			
 		};
 
-	var deleteStockFromFaves = function(stock){
-		console.log("deleteStockFromFavesFunction");
-		return $q(function(resolve, reject){
-			$http.delete(
-				firebaseURL + "stocks/" + "stockId" + ".json")
-			.success(
-				 function(objectFromFirebase) {
-				 	 resolve(objectFromFirebase);
-				 });
-		  });
-		};
 
-//or should this be one edit function that overwrites the content of the whole notes string?
-	var clearNotes = function(){
-		return $q(function(resolve, reject) {
-			$http.delete(
-				firebaseURL + "notes/" + "noteId" + ".json")
-			.success(
-				function(stringFromFirebase) {
-					resolve(stringFromFirebase);
-				});
+
+	var addToNotes = function(Note){
+  	console.log("functionAddToNotes");
+  	return $q(function(resolve, reject) {
+  		$http.post(firebaseURL + "Notes.json", Note)
+  	})
+  	.then(
+			function(NoteToFirebase){
+				resolve(NoteToFirebase);
 		});
-	};
-
-	var addToNotes = function(){
-		return $q(function(resolve, reject){
-			//put probably
-			$http.post
-
-		})
-	};
+  };	
 
 	return {
-		addStockToFavorites:addStockToFavorites, getFaves:getFaves, 
-		getStocks:getStocks, deleteStockFromFaves:deleteStockFromFaves, 
-		clearNotes:clearNotes, addToNotes:addToNotes};
+		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection,
+		getStocks:getStocks,  addToNotes:addToNotes
+	};
 });

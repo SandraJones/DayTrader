@@ -1,16 +1,8 @@
 {
-	"dates": {
-		"date": {
-			"Name": "",
-			"Open": "",
-			"Close": "",
-			"High": "",
-			"Low": "",
-			"Volume": "",
-			"Id": "",
-			"Date": "",
-			"uid": "",
-			"isFave": ""
+	"notes": {
+		"note": {
+			"string": "",
+			"uid": ""		
 		}
 	}
 }

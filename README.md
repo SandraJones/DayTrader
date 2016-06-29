@@ -1,2 +1,2 @@
 # DayTrader
-##Added moment by npm install moment
+##run npm and bower installs

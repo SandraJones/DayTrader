@@ -19,30 +19,34 @@ var app = angular.module("DayTrader", ["ngRoute", "firebase"])
           templateUrl: './partials/login.html',
           controller: 'LoginCtrl'
         }).  
-        // when('/list', {
-      //     templateUrl: './partials/nav.html',
-      //     controller: 'ListCtrl',
-      //     resolve: {isAuth}
-      //   })
+        // when('/nav', {
+        //   templateUrl: './partials/nav.html',
+        //   controller: 'ListCtrl',
+        //   resolve: {isAuth}
+        // }).
         when('/logout', {
           templateUrl: './partials/login.html',
           controller: 'LoginCtrl'
-        }).  
-        when('/', {
-          templateUrl: './partials/login.html',
-          controller: 'LoginCtrl'
         }).
-        when('/search', {
+        when('/favorites/:uid', {
           templateUrl: './partials/search.html',
           controller: 'SearchCtrl',
           resolve: {isAuth}
         }).  
-        // when('/favorites', {
-        //   templateUrl: './partials/listFave.html',
-        //   controller: 'ListCtrl',
-        //   resolve: {isAuth}
-        // }).
-        otherwise('/');
+        when('/search', {
+          templateUrl: './partials/search.html',
+          controller: 'SearchCtrl',
+          resolve: {isAuth}
+        }).
+        when('/list', {
+          templateUrl: './partials/listFave.html',
+          controller: 'ListFaveCtrl',
+          resolve: {isAuth}
+        }).  
+        otherwise('/', {
+          templateUrl: './partials/login.html',
+          controller: 'LoginCtrl'
+        });
     });
        
    //  app.run(($location, firebase, "https://sjdaytrader.firebaseio.com/") =>{
