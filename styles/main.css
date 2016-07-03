@@ -27,3 +27,15 @@ body {
 .search {
 	text-align: float right;
 }
+.titleAppFavePage {
+	color: blue;
+	font-size: 36px;
+	text-align: center;
+	font-style: italic;
+}
+.favePageTitle {
+	color: blue;
+	font-size: 16px;
+	font-style: italic;
+	text-align: center;
+}

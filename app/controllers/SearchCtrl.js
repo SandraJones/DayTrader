@@ -41,12 +41,11 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout",
 		        console.log("FaveCollection from promise", FaveCollection);
 		        $scope.Faves = FaveCollection;
 		        $scope.selectedItem = $scope.Faves.filter(function(uid){
-						$timeout();
-						$location.path('/list');
 					return $scope.selectedItem;
+					$timeout();
+					$location.path('/list');
 				});
-		        console.log("selectedITem in ctrller getFaves function", $scope.selectedItem );
-		    });
-	 		 };
+		        console.log("selectedITem in ctrller getFaves function", $scope.selectedItem);
+		   })};
 
 }]);
