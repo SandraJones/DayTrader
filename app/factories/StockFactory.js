@@ -19,7 +19,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 	var Faves = [];
 	let uid = AuthFactory.getUser();
 		return $q(function(resolve, reject){
-			console.log("getFavesrunning inside StockFactory");
 		$http.get(`${firebaseURL}Favorites.json?${uid}`)	
 			.success(function(FaveObject) {
 				FaveCollection = FaveObject;
@@ -35,6 +34,26 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 			});
 			});
 	};
+
+	var getNotes =function (){
+		var Notes = [];
+		let uid = AuthFactory.getUser();
+		return $q(function(resolve, reject){
+			$http.get(`${firebaseURL}Notes.json?${uid}`)
+			.success(function(NoteObject){
+				var NoteCollection = NoteObject;
+				Object.keys(NoteCollection).forEach(function(key){
+					NoteCollection[key].uid=key;
+					Notes.push(NoteCollection[key]);
+				});
+				resolve(Notes);
+				console.log("notes", Notes);
+			})
+			.error(function(error){
+				reject(error);
+			});
+			});
+		};
 
 	var getCollection = function(){
 		return FaveCollection;
@@ -65,6 +84,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 
 	return {
 		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection,
-		getStocks:getStocks,  addToNotes:addToNotes
+		getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes
 	};
 });

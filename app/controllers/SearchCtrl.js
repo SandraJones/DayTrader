@@ -9,6 +9,7 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout",
  	 	$scope.Faves = [];
  		$scope.selectedItem = {};
  		$scope.useListOfFaves;
+ 		$scope.SavedNotes;
 	 	
 	 	$scope.searchAStock = function(){
 	 		StockFactory.getStocks($scope.getAStock).then(function(stockReturn){
@@ -35,11 +36,23 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout",
 			};
 			StockFactory.addToNotes(Note);
 	 	 	};	
- 
+
+	 	 	$scope.getSavedNotes = function(){
+	 	 		StockFactory.getNotes().then(function(Notes){
+	 	 			$scope.SavedNotes = Notes;
+	 	 			$scope.selectedItem = $scope.SavedNotes.filter(function(uid){
+	 	 				return $scope.selectedItem;
+	 	 				$timeout();
+	 	 				$location.path('/notes');
+	 	 			});
+	 	 		});
+	 	 	}; 
+
 	 	 	$scope.useListOfFaves = function(){
 		    StockFactory.getFaves().then(function(FaveCollection){
 		        console.log("FaveCollection from promise", FaveCollection);
 		        $scope.Faves = FaveCollection;
+		        console.log("$scope.Faves", $scope.Faves);
 		        $scope.selectedItem = $scope.Faves.filter(function(uid){
 					return $scope.selectedItem;
 					$timeout();
