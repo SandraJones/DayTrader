@@ -91,9 +91,19 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 		});
   };	
 
+  var deleteFave = function(Fave){
+		return $q(function(resolve, reject){
+			$http
+      	.delete(firebaseURL + "favorites/" + Fave + ".json")
+      	.success(function(objectFromFirebase){
+      		resolve(objectFromFirebase);
+      	});
+		});
+	};
+
 
 	return {
-		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection,
+		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
 		getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getNoteCollection:getNoteCollection
 	};
 

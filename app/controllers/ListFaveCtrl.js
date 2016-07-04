@@ -3,5 +3,7 @@
 app.controller("ListFaveCtrl", function($scope, StockFactory){
    
 $scope.listFaves = StockFactory.getCollection();
+$scope.delFave = StockFactory.deleteFave();
+
 
 });	 	 
