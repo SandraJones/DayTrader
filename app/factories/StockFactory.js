@@ -3,6 +3,9 @@
 app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 
 	var FaveCollection;
+  var NoteCollection;
+  var Notes;
+
 
   var addStockToFavorites = function(Favorite){	
   	console.log("Favorite", Favorite);
@@ -14,6 +17,7 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 				resolve(FavoriteToFirebase);
 		});
   };
+  
   
 	var getFaves = function(){
 	var Faves = [];
@@ -27,7 +31,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 					Faves.push(FaveCollection[key]);
 				});
 				resolve(Faves);
-				console.log(Faves);
 				})
 			.error(function(error){
 				reject(error);
@@ -35,8 +38,9 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 			});
 	};
 
+
 	var getNotes =function (){
-		var Notes = [];
+		Notes = [];
 		let uid = AuthFactory.getUser();
 		return $q(function(resolve, reject){
 			$http.get(`${firebaseURL}Notes.json?${uid}`)
@@ -47,7 +51,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 					Notes.push(NoteCollection[key]);
 				});
 				resolve(Notes);
-				console.log("notes", Notes);
 			})
 			.error(function(error){
 				reject(error);
@@ -55,9 +58,15 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 			});
 		};
 
+  var getNoteCollection = function(){
+  	return  Notes;
+  }
+
+
 	var getCollection = function(){
 		return FaveCollection;
 	}
+
 
 		//Quandl api call to return a stockObject for display in DOM 
 	var getStocks = function(stock){
@@ -71,8 +80,8 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 			});			
 		};
 
+
 	var addToNotes = function(Note){
-  	console.log("functionAddToNotes");
   	return $q(function(resolve, reject) {
   		$http.post(firebaseURL + "Notes.json", Note)
   	})
@@ -82,8 +91,10 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 		});
   };	
 
+
 	return {
 		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection,
-		getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes
+		getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getNoteCollection:getNoteCollection
 	};
+
 });
