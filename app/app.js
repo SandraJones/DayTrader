@@ -38,6 +38,11 @@ var app = angular.module("DayTrader", ["ngRoute", "firebase"])
           controller: 'SearchCtrl',
           resolve: {isAuth}
         }).
+        when('/notes', {
+          templateUrl: './partials/notes.html',
+          controller: 'NotesCtrl',
+          resolve: {isAuth}  
+        }).
         when('/list', {
           templateUrl: './partials/listFave.html',
           controller: 'ListFaveCtrl',

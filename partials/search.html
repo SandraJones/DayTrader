@@ -14,7 +14,7 @@
     </div>
     <br>
     <br>
-    
+     
     <div class="outputQuandlStock">
           <div class="stockCard col-md-4">
           <br>
@@ -27,26 +27,28 @@
     </div> 
     <br>
     <br>   
+
     <div class="row">
       <div class="info">
         <button class = "btn btn-default" ng-click="addAStock(stockData)">Add To Favorite Stocks</button>
-        <a class = "btn btn-default getFaveBtn" type="button" ng-href="#/favorites" ng-click="useListOfFaves()" ng-controller="SearchCtrl">Get Favorites</a>
+        <a class = "btn btn-default getFaveBtn" type="button" ng-href="#/list" ng-click="useListOfFaves()" ng-controller="SearchCtrl">Get Favorites</a>
       </div>
     </div>  
     <br>
     <br>
    
-    <!-- want this to be the notes output area --> 
     <div class="row">
       <div class="info">
         <input type="text" class="form-control notes" placeholder="Enter notes here." ng-model="notes" />
         <div class="notes col-xs-6">
             <button class = "btn btn-default" ng-click="addANote()">Add A Note</button>
         </div>
+        <a class = "btn btn-default getNotesBtn" type="button" ng-href="#/notes" ng-click="getSavedNotes()" ng-controller="SearchCtrl">Get Saved Notes</a>
       </div> 
     </div>
     <br>
-    <br>    
+    <br> 
+
     <div>
       <p>
         <ul>Caution: 
@@ -58,5 +60,5 @@
     <br>
     <br>
     <br>
-    <footer>@copyright SandyJones</footer>
+    <footer>&copy2016 SandyJones</footer>
 </html>

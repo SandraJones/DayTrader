@@ -1,0 +1,13 @@
+<html>
+	<br>
+	<br>
+	<div>
+		<h1 class="titleAppFavePage">DAY$$TRADER</h1>
+		<h2 class="notePageTitle">Notes</h2>
+	</div>
+	<div ng-controller="NotesCtrl" class="fourthContainer">
+		<div class="stockCard col-md-6" ng-repeat="Notes in CollectionOfNotes">
+			<h2>{{Notes.string}}</h2>
+	  </div>
+	</div>  
+</html>
