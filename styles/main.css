@@ -46,3 +46,15 @@ body {
 	font-style: italic;
 	text-align: center;
 }
+.dropdown-toggle {
+	color: beige;
+}
+.dropdown-menu {
+	color: beige;
+}
+.caret {
+	color: beige;
+}
+.dropdown {
+	color: beige;
+}

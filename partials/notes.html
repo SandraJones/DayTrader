@@ -1,4 +1,4 @@
-<html>
+ <html>
 	<br>
 	<br>
 	<div>
@@ -8,7 +8,7 @@
 	<div ng-controller="NotesCtrl" class="fourthContainer">
 		<div class="stockCard col-md-9" ng-repeat="Notes in CollectionOfNotes">
 			<h2>{{Notes.string}}</h2>
-			<div class="col-xs-3"><button class="btn btn-danger" ><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+			<div class="col-xs-3"><button class="btn btn-danger" ng-href="#/notes" ng-click="delNote(Notes)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
 	  </div>
 	</div>  
 </html>

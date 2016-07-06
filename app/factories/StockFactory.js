@@ -92,19 +92,32 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
   };	
 
   var deleteFave = function(Fave){
+  	console.log("deleteFave function");
 		return $q(function(resolve, reject){
 			$http
-      	.delete(firebaseURL + "favorites/" + Fave + ".json")
-      	.success(function(objectFromFirebase){
-      		resolve(objectFromFirebase);
+      	.delete(firebaseURL + "favorites/" + Fave.uid + ".json")
+      	.then(function(response){
+      		resolve(response);
+      		// console.log("response from deleteFave in StockFactory", response);
       	});
 		});
 	};
 
+	var deleteNote = function(Notes){
+		console.log("deleteNote function", Notes);
+		return $q(function(resolve, reject){
+			$http
+      	.delete(firebaseURL + "Notes/" + Notes.uid + ".json")
+      	.then(function(response){
+      		console.log("objectFromFirebase", response);
+      		resolve(response);
+      	});
+		});
+	};
 
 	return {
 		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
-		getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getNoteCollection:getNoteCollection
+		deleteNote:deleteNote, getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getNoteCollection:getNoteCollection
 	};
 
 });
