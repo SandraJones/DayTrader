@@ -7,13 +7,12 @@
 	</div>
 	<div ng-controller="ListFaveCtrl" class="thirdContainer">
 		
-		<!-- <h1>{{selectedItem.uid}}</h1> -->  
-		<!-- I want all items in the selected user's list of favorites to print to DOM vertically -->
+		
 		<div class="stockCard col-md-9" ng-repeat="Fave in listFaves">
 			<h2>{{Fave.date}}</h2>
 			<h3>{{Fave.close}}</h3>
 			<h3>{{Fave.name}}</h3>
-			<div class="col-xs-3"><button class="btn btn-danger" ><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+			<div class="col-xs-3"><button class="btn btn-danger" ng-href="#/list" ng-click="delFave(Fave)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
 	  </div>
 	</div>  
 </html>

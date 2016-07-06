@@ -8,9 +8,9 @@ $scope.delFave = function(Fave){
     console.log("Fave", Fave);
     StockFactory.deleteFave
     (Fave).then(function(response){
-  		StockFactory.getFave().then(function(FaveCollection){
-  			$scope.Fave = FaveCollection;
-        console.log("$scope.Fave", $scope.Fave);
+  		StockFactory.getFaves().then(function(FaveCollection){
+  			$scope.listFaves = FaveCollection;
+        console.log("$scope.Fave", $scope.listFaves);
   		});
   	});
 	};

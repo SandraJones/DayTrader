@@ -92,13 +92,13 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
   };	
 
   var deleteFave = function(Fave){
-  	console.log("deleteFave function");
+  	console.log("deleteFave function", Fave);
 		return $q(function(resolve, reject){
 			$http
-      	.delete(firebaseURL + "favorites/" + Fave.uid + ".json")
+      	.delete(firebaseURL + "Favorites/" + Fave.id + ".json")
       	.then(function(response){
       		resolve(response);
-      		// console.log("response from deleteFave in StockFactory", response);
+      		console.log("response from deleteFave in StockFactory", response);
       	});
 		});
 	};
