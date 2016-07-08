@@ -1,4 +1,5 @@
 "use strict"
+
 app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout", "AuthFactory",
 	 function($scope, $location, StockFactory, $timeout, AuthFactory){
 	 	$scope.getAStock;
@@ -11,11 +12,13 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout",
  		$scope.useListOfFaves;
  		$scope.SavedNotes;
 	 	
+
 	 	$scope.searchAStock = function(){
 	 		StockFactory.getStocks($scope.getAStock).then(function(stockReturn){
 	 			$scope.stockArray = stockReturn.dataset.data[0];
 	 		});
 	 	};
+
 
 	 	$scope.addAStock = function(){
 	 		var currentUser = AuthFactory.getUser();
@@ -26,40 +29,38 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout",
 	 			"uid": currentUser
 			};
 			StockFactory.addStockToFavorites(Favorite);
-	 	 	};
+	 	};
 
-	 	 $scope.addANote = function(notes){
+
+	 	$scope.addANote = function(notes){
 	 		var currentUser = AuthFactory.getUser();
 	 	 	let Note = {
 	 	 		"string": $scope.notes,
 	 			"uid": currentUser
-	 			//chg line 34 from "string": $scope.notes[0],
 			};
 			StockFactory.addToNotes(Note);
-	 	 	};	
+	 	};	
 
-	 	 	$scope.getSavedNotes = function(){
-	 	 		StockFactory.getNotes().then(function(Notes){
-	 	 			$scope.SavedNotes = Notes;
-	 	 			$scope.selectedItem = $scope.SavedNotes.filter(function(uid){
-	 	 				return $scope.selectedItem;
-	 	 				$timeout();
-	 	 				$location.path('/notes');
-	 	 			});
+
+	 	$scope.getSavedNotes = function(){
+	 	 	StockFactory.getNotes().then(function(Notes){
+	 	 		$scope.SavedNotes = Notes;
+	 	 		$scope.selectedItem = $scope.SavedNotes.filter(function(uid){
+	 	 			return $scope.selectedItem;
+	 	 			$timeout();
+	 	 			$location.path('/notes');
 	 	 		});
-	 	 	}; 
+	 	 	});
+	 	}; 
 
-	 	 	$scope.useListOfFaves = function(){
-		    StockFactory.getFaves().then(function(FaveCollection){
-		        console.log("FaveCollection from promise", FaveCollection);
-		        $scope.Faves = FaveCollection;
-		        console.log("$scope.Faves", $scope.Faves);
-		        $scope.selectedItem = $scope.Faves.filter(function(uid){
-					return $scope.selectedItem;
-					$timeout();
-					$location.path('/list');
+
+	 	$scope.useListOfFaves = function(){
+		  StockFactory.getFaves().then(function(FaveCollection){
+        $scope.Faves = FaveCollection;
+        $scope.selectedItem = $scope.Faves.filter(function(uid){
+				return $scope.selectedItem;
+				$timeout();
+				$location.path('/list');
 				});
-		        console.log("selectedITem in ctrller getFaves function", $scope.selectedItem);
-		   })};
-
+		})};
 }]);

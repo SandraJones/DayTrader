@@ -5,9 +5,7 @@
 		<h1 class="titleAppFavePage">DAY$$TRADER</h1>
 		<h2 class="favePageTitle">Your Favorites</h2>
 	</div>
-	<div ng-controller="ListFaveCtrl" class="thirdContainer">
-		
-		
+	<div ng-controller="ListFaveCtrl" class="thirdContainer">	
 		<div class="stockCard col-md-9" ng-repeat="Fave in listFaves">
 			<h2>{{Fave.date}}</h2>
 			<h3>{{Fave.close}}</h3>
@@ -16,5 +14,3 @@
 	  </div>
 	</div>  
 </html>
-
-	<!-- ng-repeat="selectedItem in $scope.Faves" -->

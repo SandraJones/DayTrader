@@ -1,7 +1,6 @@
 <html>
   <div class="container-fluid main-container">
   <h2 class="stockSearch">Search A Stock</h2>
-
     <div class="stockSearch col-xs-6 col-xs-offset-3">
       <input type="text" class="form-control" placeholder="SearchStock" ng-model="getAStock"/>
         <div class="searchButton col-xs-6 col-xs-offset-3">
@@ -13,13 +12,11 @@
         </div>
     </div>
     <br>
-    <br>
-     
+    <br>  
     <div class="outputQuandlStock">
           <div class="stockCard col-md-4">
           <br>
           <br>
-            <!-- <h5>{{stockArray.datasets}}</h5> -->
             <h5>{{stockArray[0]}}</h5>       
             <h5>CLOSE   {{stockArray[1]}}</h5>       
           </div>
@@ -27,7 +24,6 @@
     </div> 
     <br>
     <br>   
-
     <div class="row">
       <div class="info">
         <button class = "btn btn-default" ng-click="addAStock(stockData)">Add To Favorite Stocks</button>
@@ -36,7 +32,6 @@
     </div>  
     <br>
     <br>
-   
     <div class="row">
       <div class="info">
         <input type="text" class="form-control notes" placeholder="Enter notes here." ng-model="notes" />
@@ -48,7 +43,6 @@
     </div>
     <br>
     <br> 
-
     <div>
       <p>
         <ul>Caution: 
