@@ -13,8 +13,8 @@ var app = angular.module("DayTrader", ["ngRoute", "firebase"])
     })
 
     
-    app.config(function($routeProvider){
-    	$routeProvider.
+   app.config(function($routeProvider){
+        $routeProvider.
         when('/login', {
           templateUrl: './partials/login.html',
           controller: 'LoginCtrl'
@@ -33,12 +33,7 @@ var app = angular.module("DayTrader", ["ngRoute", "firebase"])
           controller: 'SearchCtrl',
           resolve: {isAuth}
         }). 
-        when('/edits/:noteId', {
-          templateUrl: './partials/edit.html',
-          controller: 'EditCtrl',
-          resolve: {isAuth}
-        }).
-        when('edits/:noteId/edit', {
+        when('/notes/:noteId', {
           templateUrl: './partials/edit.html',
           controller: 'EditCtrl',
           resolve: {isAuth}
