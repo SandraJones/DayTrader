@@ -32,7 +32,17 @@ var app = angular.module("DayTrader", ["ngRoute", "firebase"])
           templateUrl: './partials/search.html',
           controller: 'SearchCtrl',
           resolve: {isAuth}
-        }).  
+        }). 
+        when('/edits/:noteId', {
+          templateUrl: './partials/edit.html',
+          controller: 'EditCtrl',
+          resolve: {isAuth}
+        }).
+        when('edits/:noteId/edit', {
+          templateUrl: './partials/edit.html',
+          controller: 'EditCtrl',
+          resolve: {isAuth}
+        }).
         when('/search', {
           templateUrl: './partials/search.html',
           controller: 'SearchCtrl',

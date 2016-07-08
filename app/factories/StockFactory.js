@@ -115,8 +115,37 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 		});
 	};
 
+	var getSingleNote = function(Notes){	
+				return $q(function(resolve, reject){
+				$http.get(firebaseURL + "items/" + Notes + ".json")
+				   .success(function(noteObject) {
+					  	resolve(noteObject);
+					   	})
+			   		.error(function(error){		
+			   		  reject(error);
+			   });
+			})		
+	}
+
+	var updateNote = function(Notes, newNote){
+     return $q(function(resolve, reject) {
+        $http.put(
+          firebaseURL + "items/" + Notes + ".json",
+            JSON.stringify({
+                string: newNote.string
+                
+            })
+         )
+          .success(
+              function(objectFromFirebase) {
+                  resolve(objectFromFirebase);
+              }
+          );
+        });
+  };
+
 	return {
-		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
+		addStockToFavorites:addStockToFavorites, getSingleNote:getSingleNote, updateNote:updateNote, getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
 		deleteNote:deleteNote, getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getNoteCollection:getNoteCollection
 	};
 
