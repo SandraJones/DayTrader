@@ -5,11 +5,16 @@
 			<h1 class="titleAppFavePage">DAY$$TRADER</h1>
 			<h2 class="notePageTitle">Notes</h2>
 		</div>
+
 		<div ng-controller="NotesCtrl" class="fourthContainer">
 			<div class="stockCard col-md-9" ng-repeat="Notes in CollectionOfNotes">
+
 				<h2>{{Notes.string}}</h2>
+
 				<div class="col-xs-3"><button class="btn btn-danger" ng-href="#/notes" ng-click="delNote(Notes)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+
 				<div class="col-xs-3"><button class="btn btn-danger" ng-href="#/edits" ng-click="editNote(Notes)">Edit<i class="" aria-hidden="true" ></i></button></div>
 		  </div>
 		</div>
+
 </html>

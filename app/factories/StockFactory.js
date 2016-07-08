@@ -5,7 +5,7 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 	var FaveCollection;
   var NoteCollection;
   var Notes;
-  var newNote;
+  // var newNote;
   
 
 
@@ -118,37 +118,39 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 	};
 
 	var getSingleNote = function(selectedString	){	
-				return $q(function(resolve, reject){
-				$http.get(firebaseURL + "items/" + Notes.uid + ".json")
-				   .success(function(noteObject) {
-					  	resolve(noteObject);
-					   	})
-			   		.error(function(error){		
-			   		  reject(error);
-			   });
-			})		
+		console.log("getSingleNote", selectedString);
+	// 			return $q(function(resolve, reject){
+	// 			$http.get(firebaseURL + "items/" + Notes.uid + ".json")
+	// 			   .success(function(noteObject) {
+	// 				  	resolve(noteObject);
+	// 				   	})
+	// 		   		.error(function(error){		
+	// 		   		  reject(error);
+	// 		   });
+	// 		})		
 	}
-	var updatePassInUid = $scope.Notes.uid;
-	var updatePassInString = $scope.Notes.string;
-	var updateNote = function(updatePassInUid, updatePassInString){
-     return $q(function(resolve, reject) {
-        $http.put(
-          firebaseURL + "items/" + Notes.uid + ".json",
-            JSON.stringify({
-                string: newNote.string  
-            })
-         )
-          .success(
-              function(objectFromFirebase) {
-                  resolve(objectFromFirebase);
-              }
-          );
-        });
-  };
+	// var updatePassInUid = $scope.Notes.uid;
+	// var updatePassInString = $scope.Notes.string;
+	// var updateNote = function(updatePassInUid, updatePassInString){
+ //     return $q(function(resolve, reject) {
+ //        $http.put(
+ //          firebaseURL + "items/" + Notes.uid + ".json",
+ //            JSON.stringify({
+ //                string: newNote.string  
+ //            })
+ //         )
+ //          .success(
+ //              function(objectFromFirebase) {
+ //                  resolve(objectFromFirebase);
+ //              }
+ //          );
+ //        });
+ //  };
 
 	return {
-		addStockToFavorites:addStockToFavorites, getSingleNote:getSingleNote, updateNote:updateNote, getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
+		addStockToFavorites:addStockToFavorites,   getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
 		deleteNote:deleteNote, getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getNoteCollection:getNoteCollection
 	};
 
 });
+//updateNote:updateNote, getSingleNote:getSingleNote,

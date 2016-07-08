@@ -20,19 +20,19 @@ app.controller("NotesCtrl", function($scope, StockFactory){
   		});
   	});
 	};
-  $scope.editNote = function(Notes){
-    console.log(" editNote function Notes", Notes);
-    StockFactory.getSingleNote().then(function(response){
-      $scope.singleNote = response;
-      $scope.selectedStringFromNote = $scope.singleNote.filter(function(uid){
-        return  $scope.selectedStringFromNote;
-        $timeout();
-        $location.path('/notes');
-      } )
-    });
-    StockFactory.updateNote(Notes); 
-    return $scope.objectFromFirebase;
-  }; 	
+  // $scope.editNote = function(Notes){
+  //   console.log(" editNote function Notes", Notes);
+  //   StockFactory.getSingleNote().then(function(response){
+  //     $scope.singleNote = response;
+  //     $scope.selectedStringFromNote = $scope.singleNote.filter(function(uid){
+  //       return  $scope.selectedStringFromNote;
+  //       $timeout();
+  //       $location.path('/notes');
+  //     } )
+  //   });
+  //   StockFactory.updateNote(Notes); 
+  //   return $scope.objectFromFirebase;
+  // }; 	
 });  
 
 // REMOVE THIS
