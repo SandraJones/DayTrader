@@ -5,6 +5,8 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 	var FaveCollection;
   var NoteCollection;
   var Notes;
+  var newNote;
+  
 
 
   var addStockToFavorites = function(Favorite){	
@@ -115,9 +117,9 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 		});
 	};
 
-	var getSingleNote = function(Notes){	
+	var getSingleNote = function(selectedString	){	
 				return $q(function(resolve, reject){
-				$http.get(firebaseURL + "items/" + Notes + ".json")
+				$http.get(firebaseURL + "items/" + Notes.uid + ".json")
 				   .success(function(noteObject) {
 					  	resolve(noteObject);
 					   	})
@@ -126,14 +128,14 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 			   });
 			})		
 	}
-
-	var updateNote = function(Notes, newNote){
+	var updatePassInUid = $scope.Notes.uid;
+	var updatePassInString = $scope.Notes.string;
+	var updateNote = function(updatePassInUid, updatePassInString){
      return $q(function(resolve, reject) {
         $http.put(
-          firebaseURL + "items/" + Notes + ".json",
+          firebaseURL + "items/" + Notes.uid + ".json",
             JSON.stringify({
-                string: newNote.string
-                
+                string: newNote.string  
             })
          )
           .success(
