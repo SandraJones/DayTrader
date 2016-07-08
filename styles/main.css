@@ -5,6 +5,7 @@
 	border: 2px solid grey;
 	background-color: beige;
 	font-weight: 800;
+	padding-bottom: 40px;
 }
 .stockSearch {
 	color: blue;
@@ -38,4 +39,22 @@ body {
 	font-size: 16px;
 	font-style: italic;
 	text-align: center;
+}
+.notePageTitle {
+	color: blue;
+	font-size: 20px;
+	font-style: italic;
+	text-align: center;
+}
+.dropdown-toggle {
+	color: beige;
+}
+.dropdown-menu {
+	color: beige;
+}
+.caret {
+	color: beige;
+}
+.dropdown {
+	color: beige;
 }

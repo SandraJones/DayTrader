@@ -91,10 +91,33 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 		});
   };	
 
+  var deleteFave = function(Fave){
+  	console.log("deleteFave function", Fave);
+		return $q(function(resolve, reject){
+			$http
+      	.delete(firebaseURL + "Favorites/" + Fave.id + ".json")
+      	.then(function(response){
+      		resolve(response);
+      		console.log("response from deleteFave in StockFactory", response);
+      	});
+		});
+	};
+
+	var deleteNote = function(Notes){
+		console.log("deleteNote function", Notes);
+		return $q(function(resolve, reject){
+			$http
+      	.delete(firebaseURL + "Notes/" + Notes.uid + ".json")
+      	.then(function(response){
+      		console.log("objectFromFirebase", response);
+      		resolve(response);
+      	});
+		});
+	};
 
 	return {
-		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection,
-		getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getNoteCollection:getNoteCollection
+		addStockToFavorites:addStockToFavorites, getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
+		deleteNote:deleteNote, getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getNoteCollection:getNoteCollection
 	};
 
 });

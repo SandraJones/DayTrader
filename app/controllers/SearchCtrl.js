@@ -31,8 +31,9 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout",
 	 	 $scope.addANote = function(notes){
 	 		var currentUser = AuthFactory.getUser();
 	 	 	let Note = {
-	 	 		"string": $scope.notes[0],
+	 	 		"string": $scope.notes,
 	 			"uid": currentUser
+	 			//chg line 34 from "string": $scope.notes[0],
 			};
 			StockFactory.addToNotes(Note);
 	 	 	};	
