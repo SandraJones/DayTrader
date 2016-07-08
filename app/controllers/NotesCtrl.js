@@ -20,9 +20,10 @@ app.controller("NotesCtrl", function($scope, StockFactory){
   		});
   	});
 	};
-  // $scope.editNote = function(Notes){
-  //   console.log(" editNote function Notes", Notes);
-  //   StockFactory.getSingleNote().then(function(response){
+  $scope.editNote = function(Notes){
+    console.log(" editNote function Notes", Notes);
+    StockFactory.getSingleNote().then(function(response){
+      console.log("responseFromGetSingleNote", reponse);
   //     $scope.singleNote = response;
   //     $scope.selectedStringFromNote = $scope.singleNote.filter(function(uid){
   //       return  $scope.selectedStringFromNote;
@@ -32,7 +33,8 @@ app.controller("NotesCtrl", function($scope, StockFactory){
   //   });
   //   StockFactory.updateNote(Notes); 
   //   return $scope.objectFromFirebase;
-  // }; 	
+    }); 	
+};
 });  
 
 // REMOVE THIS
