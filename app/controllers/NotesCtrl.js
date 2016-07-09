@@ -1,7 +1,7 @@
 "use strict"
 
 app.controller("NotesCtrl", function($scope, $location, StockFactory){
-  // $scope.CollectionOfNotes;
+  
   $scope.delNote;
   $scope.CollectionOfNotes = StockFactory.getNoteCollection();
   $scope.newNote;
@@ -13,14 +13,12 @@ app.controller("NotesCtrl", function($scope, $location, StockFactory){
 
   $scope.delNote = function(Notes){
     StockFactory.deleteNote(Notes).then(function(response){
-          StockFactory.getNotes().then(function(NoteCollection){
-              $scope.CollectionOfNotes = NoteCollection;
-        console.log("$scope.notes", $scope.CollectionOfNotes);
-          });
+      StockFactory.getNotes().then(function(NoteCollection){
+        $scope.CollectionOfNotes = NoteCollection;
+      });
       });
     };
   $scope.editNote = function(Notes){
-    console.log(" editNote function Notes", Notes);
     $location.path('/notes/'+ Notes.uid);
   };     
 });
