@@ -1,6 +1,6 @@
 "use strict"
 
-app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout", "AuthFactory",
+ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout", "AuthFactory",
 	 function($scope, $location, StockFactory, $timeout, AuthFactory){
 	 	$scope.getAStock;
 	 	$scope.stockArray;
@@ -63,4 +63,4 @@ app.controller('SearchCtrl', ["$scope", "$location", "StockFactory", "$timeout",
 				$location.path('/list');
 				});
 		})};
-}]);
+ }]);

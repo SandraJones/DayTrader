@@ -7,9 +7,9 @@ app.controller("ListFaveCtrl", function($scope, StockFactory){
 	$scope.delFave = function(Fave){
 	  StockFactory.deleteFave
 	  (Fave).then(function(response){
-	  	 StockFactory.getFaves().then(function(FaveCollection){
-	  		 $scope.listFaves = FaveCollection;
+	  	StockFactory.getFaves().then(function(FaveCollection){
+	  		$scope.listFaves = FaveCollection;
 	  		});
-	  	});
-		};
+	  });
+	};
 });	 	 
