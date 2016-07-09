@@ -1,6 +1,7 @@
 <html>
   <div class="container-fluid main-container">
-  <h2 class="stockSearch">Search A Stock</h2>
+  <h2 class="stockSearch">Day$$Trader</h2>
+  <h4 class="searching">Search A Stock</h4>
     <div class="stockSearch col-xs-6 col-xs-offset-3">
       <input type="text" class="form-control" placeholder="SearchStock" ng-model="getAStock"/>
         <div class="searchButton col-xs-6 col-xs-offset-3">
@@ -26,7 +27,7 @@
     <br>   
     <div class="row">
       <div class="info">
-        <button class = "btn btn-default" ng-click="addAStock(stockData)">Add To Favorite Stocks</button>
+        <button class = "btn btn-default favStocks" ng-click="addAStock(stockData)">Add To Favorite Stocks</button>
         <a class = "btn btn-default getFaveBtn" type="button" ng-href="#/list" ng-click="useListOfFaves()" ng-controller="SearchCtrl">Get Favorites</a>
       </div>
     </div>  
@@ -35,20 +36,27 @@
     <div class="row">
       <div class="info">
         <input type="text" class="form-control notes" placeholder="Enter notes here." ng-model="notes" />
-        <div class="notes col-xs-6">
-            <button class = "btn btn-default" ng-click="addANote()">Add A Note</button>
-        </div>
-        <a class = "btn btn-default getNotesBtn" type="button" ng-href="#/notes" ng-click="getSavedNotes()" ng-controller="SearchCtrl">Get Saved Notes</a>
+        <div class="noteButtonPlacement">
+          <div class="note col-xs-6">
+              <button class = "btn btn-default" ng-click="addANote()">Add A Note</button>
+          </div>
+          <div>
+          <a class = "btn btn-default getNotesBtn" type="button" ng-href="#/notes" ng-click="getSavedNotes()" ng-controller="SearchCtrl">Get Saved Notes</a>
+          </div>
+        </div>  
       </div> 
     </div>
     <br>
     <br> 
     <div>
       <p>
-        <ul>Caution: 
+        <ul class="warnings">Caution: 
           <li>Never borrow money to invest in stock.</li>
           <li>Investing in a single stock is riskier than investing in an index fund.</li>
         </ul>
       </p>
+    </div>
+    <div>
+      <img src="./stock-exchange-738671_960_720.jpg">
     </div>
 </html>

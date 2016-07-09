@@ -6,6 +6,9 @@
 	background-color: beige;
 	font-weight: 800;
 	padding-bottom: 40px;
+	width: 70%;
+	margin-left: 10%;
+	margin-bottom: 2%;
 }
 .stockSearch {
 	color: blue;
@@ -42,7 +45,7 @@ body {
 }
 .notePageTitle {
 	color: blue;
-	font-size: 20px;
+	font-size: 30px;
 	font-style: italic;
 	text-align: center;
 }
@@ -57,4 +60,37 @@ body {
 }
 .dropdown {
 	color: beige;
+}
+.notes {
+	margin-left: 10%;
+	max-width: 70%;
+}
+.noteButtonPlacement {
+	margin-top: 2%;
+	margin-left: 10%;
+	max-width: 20%;
+}
+.spacingLoginPage {
+	margin-left: 5%;
+}
+.footer {
+	padding-left: 5%;
+	padding-top: 30%;
+}
+.favStocks {
+	margin-left: 10%;
+}
+.note {
+	margin: 5%;
+	max-width: 20%;
+}
+.warnings {
+	margin-left: 5%;
+}
+.stockSearch {
+	text-align: center; 
+}
+.searching {
+	text-align: center;
+	color: blue;
 }
