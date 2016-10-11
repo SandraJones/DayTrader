@@ -16,10 +16,10 @@
 	 	$scope.searchAStock = function(){
 	 		StockFactory.getStocks($scope.getAStock).then(function(stockReturn){
 	 			$scope.stockArray = stockReturn.dataset.data[0];
-	 		});
-	 	};
-
-
+	 			
+	 			})
+	 		};
+	 	
 	 	$scope.addAStock = function(){
 	 		var currentUser = AuthFactory.getUser();
 	 	 	let Favorite = {
