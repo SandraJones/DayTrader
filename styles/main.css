@@ -1,20 +1,19 @@
 .stockCard {
 	text-align: center;
 	font-size: 16px;
-	color: blue;
+	color: #3c418d;
 	border: 2px solid grey;
-	background-color: beige;
-	font-weight: 800;
+	background-color: tan;
+	font-weight: 900;
 	padding-bottom: 40px;
-	width: 70%;
-	margin-left: 10%;
+	width: 50%;
+	margin-left: 25%;
 	margin-bottom: 2%;
 }
 .stockSearch {
-	color: blue;
+	color: #3c418d;
 	font-size: 36px;
 	text-align: left;
-	font-style: italic;
 }
 .main-container {
 	background-color: grey;
@@ -23,7 +22,7 @@ body {
 	background-color: grey;
 }
 .notesHeading {
-	color: blue;
+	color: #3c418d;
 	text-align: center;
 	font-style: italic;
 	font-weight: 800;
@@ -32,34 +31,32 @@ body {
 	text-align: float right;
 }
 .titleAppFavePage {
-	color: blue;
+	color: #3c418d;
 	font-size: 36px;
 	text-align: center;
-	font-style: italic;
 }
 .favePageTitle {
-	color: blue;
+	color: #3c418d;
 	font-size: 16px;
 	font-style: italic;
 	text-align: center;
 }
 .notePageTitle {
-	color: blue;
+	color: #3c418d;
 	font-size: 30px;
-	font-style: italic;
 	text-align: center;
 }
 .dropdown-toggle {
-	color: beige;
+	color: tan;
 }
 .dropdown-menu {
-	color: beige;
+	color: tan;
 }
 .caret {
-	color: beige;
+	color: tan;
 }
 .dropdown {
-	color: beige;
+	color: tan;
 }
 .notes {
 	margin-left: 10%;
@@ -82,6 +79,7 @@ body {
 }
 .note {
 	margin: 5%;
+	margin-top: 5%
 	max-width: 20%;
 }
 .warnings {
@@ -92,5 +90,34 @@ body {
 }
 .searching {
 	text-align: center;
-	color: blue;
+	color: #3c418d;
+}
+.btn-danger:hover {
+    color: #fff;
+    background-color: #3c418d;
+    border-color: #3c418d;
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+    color: tan;
+    text-decoration: none;
+}
+.btn-danger {
+    color: tan;
+    background-color: #3c418d;
+    border-color: #3c418d;
+}
+.btn btn-danger{
+		color: tan;
+    background-color: #3c418d;
+    border-color: #3c418d;
+}
+.form-control  {
+		background-color: tan;
+		border-color: tan;
+}
+.btn-default {
+		background-color: tan;
+		border-color: tan;
+		color: #3c418d;
 }

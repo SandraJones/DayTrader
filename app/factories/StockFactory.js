@@ -6,7 +6,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
   var NoteCollection;
   var Notes;
 
-
   var addStockToFavorites = function(Favorite){    
     return $q(function(resolve, reject) {
       $http.post(firebaseURL + "Favorites.json", Favorite)
@@ -15,8 +14,7 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
        function(FavoriteToFirebase){
          resolve(FavoriteToFirebase);
         });
-  };
-  
+  };  
   
   var getFaves = function(){
 	  var Faves = [];
@@ -37,7 +35,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
 	  });
   };
 
-
   var getNotes =function (){
     Notes = [];
     let uid = AuthFactory.getUser();
@@ -57,16 +54,13 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
     });
   };
 
-
   var getNoteCollection = function(){
     return  Notes;
   }
 
-
   var getCollection = function(){
     return FaveCollection;
   }
-
 
   //Quandl api call to return a stockObject for display in DOM 
   var getStocks = function(stock){
@@ -77,9 +71,9 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
       }, function(error){
            reject(error);
           });
-    });            
+                
+    });
   };
-
 
   var addToNotes = function(Note){
     return $q(function(resolve, reject) {
@@ -91,7 +85,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
       });
 	};    
 
-
   var deleteFave = function(Fave){
       return $q(function(resolve, reject){
         $http
@@ -101,7 +94,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
         });
       });
   };
-
 
   var deleteNote = function(Notes){
     return $q(function(resolve, reject){
@@ -113,7 +105,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
       });
   };
 
-
   var getSingleNote = function(noteId){    
     return $q(function(resolve, reject){
       $http.get(firebaseURL + "Notes/" + noteId + ".json")
@@ -123,7 +114,6 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
     });        
   };
     
-
   var updateNote = function(noteId, note){
       return $q(function(resolve, reject) {
         $http.put(
@@ -141,7 +131,7 @@ app.factory("StockFactory", function(firebaseURL, $q, $http, AuthFactory){
   };
 
   return {
-      addStockToFavorites:addStockToFavorites, updateNote:updateNote, getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
+      addStockToFavorites:addStockToFavorites, updateNote:updateNote,  getFaves:getFaves, getCollection:getCollection, deleteFave:deleteFave,
       deleteNote:deleteNote, getStocks:getStocks,  addToNotes:addToNotes, getNotes:getNotes, getSingleNote:getSingleNote, getNoteCollection:getNoteCollection
   };
 
