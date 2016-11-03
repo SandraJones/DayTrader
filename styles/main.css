@@ -2,7 +2,7 @@
 	text-align: center;
 	font-size: 16px;
 	color: #3c418d;
-	border: 2px solid grey;
+	border: 2px solid #ABB2B9;
 	background-color: tan;
 	font-weight: 900;
 	padding-bottom: 40px;
@@ -16,10 +16,10 @@
 	text-align: left;
 }
 .main-container {
-	background-color: grey;
+	background-color: #ABB2B9;
 }
 body {
-	background-color: grey;
+	background-color: #ABB2B9;
 }
 .notesHeading {
 	color: #3c418d;
@@ -120,4 +120,17 @@ body {
 		background-color: tan;
 		border-color: tan;
 		color: #3c418d;
+}
+.dropdown-toggle {
+		font-size: 20px;
+		color: #3c418d;
+}
+.caret {
+		color: #3c418d;
+}
+.warnings {
+		color: #3c418d;
+}
+.screenBack {
+		text-align: center;
 }
