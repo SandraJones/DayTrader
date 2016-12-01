@@ -17,9 +17,12 @@
 }
 .main-container {
 	background-color: #ABB2B9;
+	width: 70%;
+	border-radius: 10px;
 }
 body {
-	background-color: #ABB2B9;
+	
+	background-color: white;
 }
 .notesHeading {
 	color: #3c418d;
@@ -132,5 +135,8 @@ body {
 		color: #3c418d;
 }
 .screenBack {
-		text-align: center;
+		width: 70%;	
+}
+.btn btn-default{
+	background-color: #31b0d5;
 }
