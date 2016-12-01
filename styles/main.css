@@ -8,20 +8,20 @@
 	padding-bottom: 40px;
 	width: 50%;
 	margin-left: 25%;
-	margin-bottom: 2%;
+	margin-bottom: 10%;
 }
 .stockSearch {
 	color: #3c418d;
 	font-size: 36px;
 	text-align: left;
+
 }
 .main-container {
 	background-color: #ABB2B9;
-	width: 70%;
+	width: 50%;
 	border-radius: 10px;
 }
-body {
-	
+body {	
 	background-color: white;
 }
 .notesHeading {
@@ -139,4 +139,15 @@ body {
 }
 .btn btn-default{
 	background-color: #31b0d5;
+}
+.crazyGif {
+	width: 70%;
+}
+.titleLoginPage {
+	color: #3c418d;
+}
+.smallerGif {
+	width: 70%;
+	margin-left: 10%;
+	margin-top: 10%;
 }
