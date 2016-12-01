@@ -2,24 +2,27 @@
 	text-align: center;
 	font-size: 16px;
 	color: #3c418d;
-	border: 2px solid grey;
+	border: 2px solid #ABB2B9;
 	background-color: tan;
 	font-weight: 900;
 	padding-bottom: 40px;
 	width: 50%;
 	margin-left: 25%;
-	margin-bottom: 2%;
+	margin-bottom: 10%;
 }
 .stockSearch {
 	color: #3c418d;
 	font-size: 36px;
 	text-align: left;
+
 }
 .main-container {
-	background-color: grey;
+	background-color: #ABB2B9;
+	width: 50%;
+	border-radius: 10px;
 }
-body {
-	background-color: grey;
+body {	
+	background-color: white;
 }
 .notesHeading {
 	color: #3c418d;
@@ -120,4 +123,31 @@ body {
 		background-color: tan;
 		border-color: tan;
 		color: #3c418d;
+}
+.dropdown-toggle {
+		font-size: 20px;
+		color: #3c418d;
+}
+.caret {
+		color: #3c418d;
+}
+.warnings {
+		color: #3c418d;
+}
+.screenBack {
+		width: 70%;	
+}
+.btn btn-default{
+	background-color: #31b0d5;
+}
+.crazyGif {
+	width: 70%;
+}
+.titleLoginPage {
+	color: #3c418d;
+}
+.smallerGif {
+	width: 70%;
+	margin-left: 10%;
+	margin-top: 10%;
 }
