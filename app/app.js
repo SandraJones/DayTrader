@@ -51,7 +51,7 @@ var app = angular.module("DayTrader", ["ngRoute", "firebase"])
         controller: 'ListFaveCtrl',
         resolve: {isAuth}
       }).  
-      otherwise('/', {
+      otherwise('/login', {
         templateUrl: './partials/login.html',
         controller: 'LoginCtrl'
       });
