@@ -151,3 +151,8 @@ body {
 	margin-left: 10%;
 	margin-top: 10%;
 }
+.symbolLookupText {
+	text-align: center;
+	margin-bottom: 10%;
+	color: #3c418d;
+}
