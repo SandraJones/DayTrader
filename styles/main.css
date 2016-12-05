@@ -74,6 +74,7 @@ body {
 }
 .spacingLoginPage {
 	margin-left: 5%;
+	text-align: center;
 }
 .footer {
 	padding-left: 5%;
@@ -127,12 +128,10 @@ body {
 		color: #3c418d;
 }
 h1 {
-	margin-left: 10%;
+	text-align: center;
+	margin-bottom: 5%;
 }
 .crazyGif {
 	width: 60%;
-	margin-right:40%;
-}
-.loginTitle {
-	margin-left: 10%;
+	align-content: center;
 }
