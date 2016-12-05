@@ -3,7 +3,7 @@
 	font-size: 16px;
 	color: #3c418d;
 	border: 2px solid grey;
-	background-color: tan;
+	background-color: #31b0d5;
 	font-weight: 900;
 	padding-bottom: 40px;
 	width: 50%;
@@ -47,16 +47,16 @@ body {
 	text-align: center;
 }
 .dropdown-toggle {
-	color: tan;
+	color: #31b0d5;
 }
 .dropdown-menu {
-	color: tan;
+	color: #31b0d5;
 }
 .caret {
-	color: tan;
+	color: #31b0d5;
 }
 .dropdown {
-	color: tan;
+	color: #31b0d5;
 }
 .notes {
 	margin-left: 10%;
@@ -99,25 +99,25 @@ body {
 }
 
 .btn.focus, .btn:focus, .btn:hover {
-    color: tan;
+    color: #31b0d5;
     text-decoration: none;
 }
 .btn-danger {
-    color: tan;
+    color: #31b0d5;
     background-color: #3c418d;
     border-color: #3c418d;
 }
 .btn btn-danger{
-		color: tan;
+		color: #31b0d5;
     background-color: #3c418d;
     border-color: #3c418d;
 }
 .form-control  {
-		background-color: tan;
-		border-color: tan;
+		background-color: #31b0d5;
+		border-color: #31b0d5;
 }
 .btn-default {
-		background-color: tan;
-		border-color: tan;
+		background-color: #31b0d5;
+		border-color: #31b0d5;
 		color: #3c418d;
 }
