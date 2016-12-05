@@ -127,5 +127,12 @@ body {
 		color: #3c418d;
 }
 h1 {
-	text-align: center;
+	margin-left: 10%;
+}
+.crazyGif {
+	width: 60%;
+	margin-right:40%;
+}
+.loginTitle {
+	margin-left: 10%;
 }
