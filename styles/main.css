@@ -17,9 +17,13 @@
 }
 .main-container {
 	background-color: grey;
+	width: 60%;
 }
 body {
 	background-color: grey;
+	background-color: grey;
+	background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 .notesHeading {
 	color: #3c418d;
